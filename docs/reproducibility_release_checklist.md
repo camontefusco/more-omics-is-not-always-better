@@ -8,20 +8,21 @@
 - [x] Identifier harmonization, validation, and grouped split scripts.
 - [x] Train-only feature selection.
 - [x] Baseline, modality, missingness, and aggregation scripts.
-- [x] Automated test suite: 12 passing tests.
+- [x] Automated test suite: 13 passing tests.
 - [x] Cross-dataset exploratory notes and evidence-bounded manuscript/figure plans.
 
 ## Required before public release or submission
 
-- [ ] Replace exploratory JSON-only outputs with versioned result tables and figure source data.
-- [ ] Complete authoritative MoA mapping for the prespecified analysis universe.
-- [ ] Add repeated-seed cross-dataset modality outputs to the formal results manifest.
-- [ ] Add drug-held-out and cross-study validation results.
-- [ ] Add conflict/redundancy and missing-modality pattern analyses.
+- [x] Version formal drug-held-out and leave-one-dataset-out result tables and manifests.
+- [x] Complete MoA mapping for the declared 15-compound evaluation universe; retain the 5/316 full-GDSC1 limitation.
+- [x] Add repeated-seed cross-dataset modality outputs to the formal results record.
+- [x] Add drug-held-out and cross-study validation results.
+- [x] Add structured missingness and modality redundancy summaries.
+- [ ] Add model disagreement/conflict cases to the final figures.
 - [ ] Freeze software environment and record exact dependency versions.
 - [ ] Render and visually inspect all main and supplementary figures.
 - [ ] Prepare a public-data access note that respects provider terms and does not redistribute restricted raw files.
 
 ## Current release decision
 
-The repository is suitable for internal continuation and audit. It is not yet suitable as a final public research release because MoA coverage, formal result tables, and the final figure/manuscript package are incomplete.
+The repository is suitable for internal continuation and audit. It is not yet a final public research release: clean-environment rerun, figure QA, manuscript assembly, public-data access documentation, and model-disagreement analysis remain open.

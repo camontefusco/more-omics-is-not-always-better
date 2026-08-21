@@ -1,0 +1,41 @@
+{
+  "seed": 20260821,
+  "train_drug_count": 12,
+  "test_drug_count": 3,
+  "metrics": {
+    "expression": {
+      "mae": 0.11794700633942043,
+      "rmse": 0.14809591080507692,
+      "feature_count": 2000,
+      "complete_case_rows": 1513,
+      "missing_case_rows": 1046
+    },
+    "copy_number": {
+      "mae": 0.12774383915889473,
+      "rmse": 0.15934396142580007,
+      "feature_count": 2000,
+      "complete_case_rows": 1513,
+      "missing_case_rows": 1046
+    },
+    "mutation": {
+      "mae": 0.11463756461011787,
+      "rmse": 0.14350767364354605,
+      "feature_count": 2000,
+      "complete_case_rows": 1513,
+      "missing_case_rows": 1046
+    },
+    "fusion": {
+      "mae": 0.10470515232964536,
+      "rmse": 0.13261753434004764,
+      "feature_count": 6000,
+      "complete_case_rows": 1513,
+      "missing_case_rows": 1046
+    }
+  },
+  "selected_features": {
+    "expression": 2000,
+    "copy_number": 2000,
+    "mutation": 2000,
+    "fusion": 6000
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "nominal_coverage": 0.9,
+  "datasets": {
+    "GDSC1": {
+      "drugs": 5,
+      "mean_coverage": 0.9001073883161512,
+      "min_coverage": 0.8541666666666666,
+      "max_coverage": 0.9484536082474226,
+      "at_or_above_nominal_90": 2,
+      "results": {
+        "AICA_RIBONUCLEOTIDE_(GDSC1:1001)": {
+          "group": "depmap_id",
+          "rows_fit": 307,
+          "rows_calibration": 77,
+          "rows_test": 97,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.18313867979934217,
+          "interval_coverage": 0.9484536082474226,
+          "seed": 20260821
+        },
+        "TENOVIN-6_(GDSC1:342)": {
+          "group": "depmap_id",
+          "rows_fit": 307,
+          "rows_calibration": 77,
+          "rows_test": 96,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.21607030029768615,
+          "interval_coverage": 0.9479166666666666,
+          "seed": 20260821
+        },
+        "GSK1059615_(GDSC1:374)": {
+          "group": "depmap_id",
+          "rows_fit": 307,
+          "rows_calibration": 77,
+          "rows_test": 96,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.27919135297192565,
+          "interval_coverage": 0.875,
+          "seed": 20260821
+        },
+        "ACY-1215_(GDSC1:264)": {
+          "group": "depmap_id",
+          "rows_fit": 307,
+          "rows_calibration": 77,
+          "rows_test": 96,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.20956200523910834,
+          "interval_coverage": 0.875,
+          "seed": 20260821
+        },
+        "DACOMITINIB_(GDSC1:363)": {
+          "group": "depmap_id",
+          "rows_fit": 307,
+          "rows_calibration": 77,
+          "rows_test": 96,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.26038338200209643,
+          "interval_coverage": 0.8541666666666666,
+          "seed": 20260821
+        }
+      }
+    },
+    "GDSC2": {
+      "drugs": 5,
+      "mean_coverage": 0.9460000000000001,
+      "min_coverage": 0.89,
+      "max_coverage": 1.0,
+      "at_or_above_nominal_90": 4,
+      "results": {
+        "NAVITOCLAX_(GDSC2:1011)": {
+          "group": "depmap_id",
+          "rows_fit": 317,
+          "rows_calibration": 80,
+          "rows_test": 100,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.2282164504014762,
+          "interval_coverage": 0.89,
+          "seed": 20260821
+        },
+        "MK-2206_(GDSC2:1053)": {
+          "group": "depmap_id",
+          "rows_fit": 317,
+          "rows_calibration": 80,
+          "rows_test": 100,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.18853879656468542,
+          "interval_coverage": 1.0,
+          "seed": 20260821
+        },
+        "STAUROSPORINE_(GDSC2:1034)": {
+          "group": "depmap_id",
+          "rows_fit": 317,
+          "rows_calibration": 80,
+          "rows_test": 100,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.2604920618165789,
+          "interval_coverage": 0.96,
+          "seed": 20260821
+        },
+        "PICTILISIB_(GDSC2:1058)": {
+          "group": "depmap_id",
+          "rows_fit": 317,
+          "rows_calibration": 80,
+          "rows_test": 100,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.18717282356004472,
+          "interval_coverage": 0.95,
+          "seed": 20260821
+        },
+        "MG-132_(GDSC2:1862)": {
+          "group": "depmap_id",
+          "rows_fit": 317,
+          "rows_calibration": 80,
+          "rows_test": 100,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.1989714105708022,
+          "interval_coverage": 0.93,
+          "seed": 20260821
+        }
+      }
+    },
+    "CTD2": {
+      "drugs": 5,
+      "mean_coverage": 0.8858149058149059,
+      "min_coverage": 0.8272727272727273,
+      "max_coverage": 0.918918918918919,
+      "at_or_above_nominal_90": 2,
+      "results": {
+        "OUABAIN": {
+          "group": "depmap_id",
+          "rows_fit": 352,
+          "rows_calibration": 88,
+          "rows_test": 110,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.3092386855178515,
+          "interval_coverage": 0.9181818181818182,
+          "seed": 20260821
+        },
+        "SR-II-138A": {
+          "group": "depmap_id",
+          "rows_fit": 353,
+          "rows_calibration": 89,
+          "rows_test": 111,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.22187992840843224,
+          "interval_coverage": 0.8828828828828829,
+          "seed": 20260821
+        },
+        "VINCRISTINE": {
+          "group": "depmap_id",
+          "rows_fit": 351,
+          "rows_calibration": 88,
+          "rows_test": 110,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.2986453774170706,
+          "interval_coverage": 0.8818181818181818,
+          "seed": 20260821
+        },
+        "AZD-8055": {
+          "group": "depmap_id",
+          "rows_fit": 351,
+          "rows_calibration": 88,
+          "rows_test": 110,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.23456441659929145,
+          "interval_coverage": 0.8272727272727273,
+          "seed": 20260821
+        },
+        "LEPTOMYCIN_B": {
+          "group": "depmap_id",
+          "rows_fit": 352,
+          "rows_calibration": 89,
+          "rows_test": 111,
+          "mask_fraction": 0.25,
+          "interval_radius_90": 0.2975158620620483,
+          "interval_coverage": 0.918918918918919,
+          "seed": 20260821
+        }
+      }
+    }
+  },
+  "pooled_drugs": 15,
+  "pooled_mean_coverage": 0.9106407647103524,
+  "pooled_at_or_above_nominal_90": 8
+}

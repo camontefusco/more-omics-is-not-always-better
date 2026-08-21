@@ -1,0 +1,287 @@
+{
+  "ACY-1215_(GDSC1:264)": {
+    "rows": 480,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.13950195643367494,
+      "copy_number__expression": 0.1500311275169355,
+      "copy_number__mutation": -0.14919975038725153
+    }
+  },
+  "AICA_RIBONUCLEOTIDE_(GDSC1:1001)": {
+    "rows": 481,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.13561149895963626,
+      "copy_number__expression": 0.16626092782936605,
+      "copy_number__mutation": -0.14635545153026538
+    }
+  },
+  "DACOMITINIB_(GDSC1:363)": {
+    "rows": 480,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.13950195643367494,
+      "copy_number__expression": 0.1500311275169355,
+      "copy_number__mutation": -0.14919975038725153
+    }
+  },
+  "GSK1059615_(GDSC1:374)": {
+    "rows": 480,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.13950195643367494,
+      "copy_number__expression": 0.1500311275169355,
+      "copy_number__mutation": -0.14919975038725153
+    }
+  },
+  "TENOVIN-6_(GDSC1:342)": {
+    "rows": 480,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.13950195643367494,
+      "copy_number__expression": 0.1500311275169355,
+      "copy_number__mutation": -0.14919975038725153
+    }
+  },
+  "MG-132_(GDSC2:1862)": {
+    "rows": 497,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.12514033182026912,
+      "copy_number__expression": 0.16005731144004895,
+      "copy_number__mutation": -0.1465837227645956
+    }
+  },
+  "MK-2206_(GDSC2:1053)": {
+    "rows": 497,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.12514033182026912,
+      "copy_number__expression": 0.16005731144004895,
+      "copy_number__mutation": -0.1465837227645956
+    }
+  },
+  "NAVITOCLAX_(GDSC2:1011)": {
+    "rows": 497,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.12514033182026912,
+      "copy_number__expression": 0.16005731144004895,
+      "copy_number__mutation": -0.1465837227645956
+    }
+  },
+  "PICTILISIB_(GDSC2:1058)": {
+    "rows": 497,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.12514033182026912,
+      "copy_number__expression": 0.16005731144004895,
+      "copy_number__mutation": -0.1465837227645956
+    }
+  },
+  "STAUROSPORINE_(GDSC2:1034)": {
+    "rows": 497,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.12514033182026912,
+      "copy_number__expression": 0.16005731144004895,
+      "copy_number__mutation": -0.1465837227645956
+    }
+  },
+  "AZD-8055": {
+    "rows": 549,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.08867065946547974,
+      "copy_number__expression": 0.11964018210688113,
+      "copy_number__mutation": -0.19960536453143762
+    }
+  },
+  "LEPTOMYCIN_B": {
+    "rows": 552,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.09502980420713313,
+      "copy_number__expression": 0.13012176626850666,
+      "copy_number__mutation": -0.1943596395535223
+    }
+  },
+  "OUABAIN": {
+    "rows": 550,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.0827910769624189,
+      "copy_number__expression": 0.12349653647217881,
+      "copy_number__mutation": -0.19821804761070927
+    }
+  },
+  "SR-II-138A": {
+    "rows": 553,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.09339304609410998,
+      "copy_number__expression": 0.1232202262033558,
+      "copy_number__mutation": -0.19612401163384474
+    }
+  },
+  "VINCRISTINE": {
+    "rows": 549,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 1.0,
+      "copy_number": 1.0,
+      "mutation": 1.0
+    },
+    "all_modality_complete_case_fraction": 1.0,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.09770163917209017,
+      "copy_number__expression": 0.11810402959602889,
+      "copy_number__mutation": -0.19386303976533972
+    }
+  }
+}
