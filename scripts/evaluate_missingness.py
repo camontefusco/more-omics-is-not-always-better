@@ -58,8 +58,16 @@ def main() -> int:
     parser.add_argument("--target", default="response_value")
     parser.add_argument("--group")
     parser.add_argument("--mask-fraction", type=float, default=0.25)
+    parser.add_argument("--mask-fractions", type=float, nargs="+", help="Evaluate several masking fractions in one run")
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    print(json.dumps(evaluate(args.table, args.target, args.group, args.features, args.mask_fraction), indent=2))
+    fractions = args.mask_fractions or [args.mask_fraction]
+    result = [evaluate(args.table, args.target, args.group, args.features, fraction) for fraction in fractions]
+    rendered = json.dumps(result[0] if len(result) == 1 else result, indent=2)
+    print(rendered)
+    if args.output:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(rendered + "\n", encoding="utf-8")
     return 0
 
 
