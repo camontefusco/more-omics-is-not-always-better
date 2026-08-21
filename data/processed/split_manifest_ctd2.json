@@ -1,0 +1,21 @@
+{
+  "source": "data/processed/response_ctd2_long.csv",
+  "seed": 20260821,
+  "rows": 346553,
+  "pair_held_out": {
+    "train_rows": 277242,
+    "test_rows": 69311
+  },
+  "cell_line_held_out": {
+    "train_rows": 277408,
+    "test_rows": 69145,
+    "train_groups": 648,
+    "test_groups": 162
+  },
+  "drug_held_out": {
+    "train_rows": 276042,
+    "test_rows": 70511,
+    "train_groups": 435,
+    "test_groups": 109
+  }
+}
