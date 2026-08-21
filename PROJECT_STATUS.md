@@ -16,6 +16,8 @@
 - [ ] Run final repeated-seed modality and cross-study performance analyses
 - [ ] Produce publication figures, manuscript, and reproducibility release package
 
+The reproducibility release checklist is in `docs/reproducibility_release_checklist.md`; the current repository is suitable for internal continuation, not final public release.
+
 ## Current evidence status
 
 The repository is analysis-ready and reproducible for the locked exploratory runs, but not publication-final. The final-gates audit passes the manifest and automated tests; the MoA audit currently maps 5 of 316 GDSC1 response compounds, so mechanism-stratified conclusions remain limited to the mapped exploratory subset.
