@@ -1,0 +1,55 @@
+{
+  "rows": [
+    {
+      "validation": "leave_one_dataset_out",
+      "held_out": "CTD2",
+      "expression_rmse": 0.32762095974770183,
+      "fusion_rmse": 0.5649289591335253,
+      "fusion_delta_rmse": 0.23730799938582342,
+      "outcome": "harms"
+    },
+    {
+      "validation": "leave_one_dataset_out",
+      "held_out": "GDSC1",
+      "expression_rmse": 0.25845619407825704,
+      "fusion_rmse": 0.3100759777411317,
+      "fusion_delta_rmse": 0.051619783662874674,
+      "outcome": "harms"
+    },
+    {
+      "validation": "leave_one_dataset_out",
+      "held_out": "GDSC2",
+      "expression_rmse": 0.22910867154583042,
+      "fusion_rmse": 0.28698455193279754,
+      "fusion_delta_rmse": 0.057875880386967116,
+      "outcome": "harms"
+    },
+    {
+      "validation": "drug_heldout",
+      "held_out": "20260821",
+      "expression_rmse": 0.14809591080507692,
+      "fusion_rmse": 0.13261753434004764,
+      "fusion_delta_rmse": -0.015478376465029281,
+      "outcome": "helps"
+    },
+    {
+      "validation": "drug_heldout",
+      "held_out": "20260822",
+      "expression_rmse": 0.2173729422011342,
+      "fusion_rmse": 0.21479498595895166,
+      "fusion_delta_rmse": -0.002577956242182544,
+      "outcome": "helps"
+    },
+    {
+      "validation": "drug_heldout",
+      "held_out": "20260823",
+      "expression_rmse": 0.2535020096336096,
+      "fusion_rmse": 0.2541520926098025,
+      "fusion_delta_rmse": 0.0006500829761929006,
+      "outcome": "harms"
+    }
+  ],
+  "help_count": 2,
+  "harm_count": 4,
+  "interpretation": "Fusion effects are conditional when the sign of fusion_delta_rmse varies across held-out folds."
+}

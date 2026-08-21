@@ -18,7 +18,7 @@
 - [x] Add repeated-seed cross-dataset modality outputs to the formal results record.
 - [x] Add drug-held-out and cross-study validation results.
 - [x] Add structured missingness and modality redundancy summaries.
-- [ ] Add model disagreement/conflict cases to the final figures.
+- [x] Add model disagreement/conflict cases to the final results and figure source data.
 - [ ] Freeze software environment and record exact dependency versions.
 - [ ] Render and visually inspect all main and supplementary figures.
 - [ ] Prepare a public-data access note that respects provider terms and does not redistribute restricted raw files.
