@@ -172,7 +172,7 @@ def main():
     add_body(doc,"Availability was audited before interpreting fusion results. For each source table, the audit records the number of rows with each modality available, the number complete across all selected blocks, and the number requiring imputation. Outer joins are used for this audit because an inner join can conceal the extent of modality-specific attrition. These counts characterize the constructed analysis table; they are not estimates of missingness in all DepMap data.")
     p=doc.add_paragraph(); p.add_run("Table 6. ").bold=True; p.add_run("Interpretation guardrails for the reported evidence.")
     add_table(doc,["Observed result","Permitted interpretation","Not supported"],[
-        ["Fusion improves 2/3 drug-heldout seeds","Conditional improvement under this benchmark","Universal multimodal superiority"],
+        ["Fusion improves slightly in all 3 drug-heldout seeds","Small conditional improvement under this benchmark","Universal multimodal superiority"],
         ["Fusion worsens all 3 LOOD folds","Transfer failure in these source-held-out folds","Proof of a biological incompatibility"],
         ["Availability differs by dataset","Data structure is source-dependent","Missingness caused the error difference"],
         ["Modality correlations are weak-to-moderate","Some redundancy and complementarity coexist","A causal redundancy mechanism"],

@@ -30,7 +30,7 @@ def main() -> int:
     ax.set_ylabel("RMSE")
     ax.set_title("Leave-one-dataset-out performance")
     ax.legend(frameon=False, ncol=2)
-    ax.text(0, -0.22, "Fold-local top-2,000 features per modality; Ridge; outer-joined table", transform=ax.transAxes, fontsize=8)
+    ax.text(0, -0.22, "Fold-local top-2,000 features from full raw modality universes; Ridge; outer-joined table", transform=ax.transAxes, fontsize=8)
     fig.savefig(args.output / "lood_rmse.png", dpi=300)
     fig.savefig(args.output / "lood_rmse.pdf")
     plt.close(fig)
