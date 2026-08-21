@@ -25,3 +25,9 @@ Competing interests: The author declares no competing interests.
 Author contributions (CRediT): Carlos Victor Montefusco-Pereira: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing—original draft, Writing—review and editing, Visualization, and Project administration.
 
 Generative AI declaration: Generative AI tools were used for language editing, document formatting, and coding assistance under author review. The author verified the scientific content, analyses, citations, figures, and final manuscript.
+
+Ethics statement: Not applicable. The study uses publicly available, de-identified cell-line and molecular datasets and involves no human participants, patient intervention, or animal experimentation.
+
+Data-access acknowledgement: DepMap/GDSC/CTD² files were obtained from the DepMap portal under the provider’s applicable terms. The manuscript cites the relevant DepMap resources; raw provider files are not redistributed.
+
+Reviewer blinding: The non-anonymized submission identifies the author. A separate anonymized manuscript and supplementary package are available if double-blind review is required.

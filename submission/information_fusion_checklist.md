@@ -12,4 +12,7 @@
 - [x] Prepare anonymized reviewer package with author information removed.
 - [x] Prepare cover letter answering the journal’s required questions.
 - [x] Include data/code availability and public-data licensing note.
+- [x] Add ethics statement: not applicable.
+- [x] Add reviewer-blinding instructions and anonymized package.
+- [x] Add DepMap data-access acknowledgement.
 - [ ] Convert to the journal Word or LaTeX template and perform final page-count/format QA.

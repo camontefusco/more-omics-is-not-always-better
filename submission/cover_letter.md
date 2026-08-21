@@ -10,6 +10,8 @@ State of the art: the study is positioned against CCLE/GDSC pharmacogenomic reso
 
 Public datasets: common resources include CCLE/DepMap and GDSC. We used DepMap response and molecular releases for GDSC1, GDSC2, and CTD², with release identifiers and checksums recorded in the repository. Raw files are not redistributed.
 
+Declarations: the study received no external funding; the author declares no competing interests; ethics approval is not applicable because the study uses publicly available de-identified cell-line and molecular data with no human participants, patient intervention, or animal experimentation. DepMap data are acknowledged and cited according to the provider’s guidance, and raw provider files are not redistributed.
+
 Validation: standard response-prediction measures include RMSE and MAE; we report both. We applied drug-grouped heldout splits across five seeds, fold-local feature selection, and leave-one-dataset-out validation. We also report structured missingness strata and modality redundancy summaries.
 
 Main claim and significance: adding modalities should be judged by incremental value and transferability rather than dimensionality alone. The finding that fusion fails under cross-study transfer is directly relevant to information-fusion systems operating across heterogeneous sources.
@@ -17,6 +19,8 @@ Main claim and significance: adding modalities should be judged by incremental v
 Evidence: all formal splits, feature-selection rules, derived result tables, figures, tests, and an identical reproducibility rerun are versioned in the repository. Raw provider files are not redistributed. The manuscript explicitly limits claims to the prespecified 15-compound universe and identifies the lack of broad same-drug cross-study replication as a limitation.
 
 This manuscript has not been published previously and is not under consideration elsewhere. All authors will approve the submitted version and authorship list before submission.
+
+If the journal requires double-blind review, we will provide the prepared anonymized manuscript, supplementary material, highlights, and graphical abstract package.
 
 Sincerely,
 
