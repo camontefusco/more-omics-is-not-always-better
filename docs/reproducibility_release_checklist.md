@@ -19,10 +19,11 @@
 - [x] Add drug-held-out and cross-study validation results.
 - [x] Add structured missingness and modality redundancy summaries.
 - [x] Add model disagreement/conflict cases to the final results and figure source data.
-- [ ] Freeze software environment and record exact dependency versions.
-- [ ] Render and visually inspect all main and supplementary figures.
-- [ ] Prepare a public-data access note that respects provider terms and does not redistribute restricted raw files.
+- [x] Freeze software environment and record exact dependency versions.
+- [x] Render and visually inspect the release validation figures; source data are committed alongside them.
+- [x] Prepare a public-data access note that respects provider terms and does not redistribute restricted raw files.
+- [x] Assemble the evidence-bounded manuscript draft.
 
 ## Current release decision
 
-The repository is suitable for internal continuation and audit. It is not yet a final public research release: clean-environment rerun, figure QA, manuscript assembly, public-data access documentation, and model-disagreement analysis remain open.
+The repository is suitable for internal continuation and audit, with the evidence-bounded manuscript and release artifacts assembled. A final public release still requires an external licensing review and, if desired, expansion beyond the declared 15-compound universe.
