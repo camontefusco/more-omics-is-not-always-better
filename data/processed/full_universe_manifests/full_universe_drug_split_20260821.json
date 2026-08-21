@@ -1,0 +1,29 @@
+{
+  "seed": 20260821,
+  "top_k": 2000,
+  "train_drugs": [
+    "AICA RIBONUCLEOTIDE (GDSC1:1001)",
+    "AZD-8055",
+    "GSK1059615 (GDSC1:374)",
+    "LEPTOMYCIN B",
+    "MG-132 (GDSC2:1862)",
+    "MK-2206 (GDSC2:1053)",
+    "NAVITOCLAX (GDSC2:1011)",
+    "OUABAIN",
+    "PICTILISIB (GDSC2:1058)",
+    "STAUROSPORINE (GDSC2:1034)",
+    "TENOVIN-6 (GDSC1:342)",
+    "VINCRISTINE"
+  ],
+  "test_drugs": [
+    "ACY-1215 (GDSC1:264)",
+    "DACOMITINIB (GDSC1:363)",
+    "SR-II-138A"
+  ],
+  "response_rows": 13050,
+  "raw_feature_counts": {
+    "expression": 19215,
+    "copy_number": 18613,
+    "mutation": 19505
+  }
+}
