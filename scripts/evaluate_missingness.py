@@ -16,8 +16,13 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 
-def evaluate(path: Path, target: str, group: str, features: list[str], mask_fraction: float = 0.25, seed: int = 20260821) -> dict[str, float | int]:
-    frame = pd.read_csv(path).dropna(subset=[target, group]).reset_index(drop=True)
+def evaluate(path: Path, target: str, group: str | None, features: list[str], mask_fraction: float = 0.25, seed: int = 20260821) -> dict[str, float | int | str]:
+    frame = pd.read_csv(path)
+    if group is None:
+        group = next((candidate for candidate in ("depmap_id", "cell_line_id_raw") if candidate in frame.columns), None)
+    if group is None:
+        raise ValueError("no grouping column found; expected depmap_id or cell_line_id_raw")
+    frame = frame.dropna(subset=[target, group]).reset_index(drop=True)
     missing = set(features) - set(frame.columns)
     if missing:
         raise ValueError(f"missing feature columns: {sorted(missing)}")
@@ -43,7 +48,7 @@ def evaluate(path: Path, target: str, group: str, features: list[str], mask_frac
     radius = float(np.quantile(residuals, 0.9, method="higher"))
     observed = frame.loc[test_idx, target].to_numpy()
     coverage = float(np.mean((observed >= prediction - radius) & (observed <= prediction + radius)))
-    return {"rows_fit": int(len(fit_idx)), "rows_calibration": int(len(calibration_idx)), "rows_test": int(len(test_idx)), "mask_fraction": mask_fraction, "interval_radius_90": radius, "interval_coverage": coverage, "seed": seed}
+    return {"group": group, "rows_fit": int(len(fit_idx)), "rows_calibration": int(len(calibration_idx)), "rows_test": int(len(test_idx)), "mask_fraction": mask_fraction, "interval_radius_90": radius, "interval_coverage": coverage, "seed": seed}
 
 
 def main() -> int:
@@ -51,7 +56,7 @@ def main() -> int:
     parser.add_argument("table", type=Path)
     parser.add_argument("--features", nargs="+", required=True)
     parser.add_argument("--target", default="response_value")
-    parser.add_argument("--group", default="cell_line_id_raw")
+    parser.add_argument("--group")
     parser.add_argument("--mask-fraction", type=float, default=0.25)
     args = parser.parse_args()
     print(json.dumps(evaluate(args.table, args.target, args.group, args.features, args.mask_fraction), indent=2))

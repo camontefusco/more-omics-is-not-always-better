@@ -21,3 +21,14 @@ def test_missingness_evaluation_returns_interval_metrics(tmp_path):
     result = MODULE.evaluate(path, "response_value", "cell_line_id_raw", ["expr_1"], 0.5)
     assert 0 <= result["interval_coverage"] <= 1
     assert result["interval_radius_90"] >= 0
+
+
+def test_missingness_evaluation_auto_detects_depmap_group(tmp_path):
+    path = tmp_path / "table.csv"
+    pd.DataFrame({
+        "depmap_id": list("AABBCCDDEE"),
+        "response_value": [1, 2, 2, 3, 3, 4, 4, 5, 5, 6],
+        "expr_1": [1, 2, 2, 3, 3, 4, 4, 5, 5, 6],
+    }).to_csv(path, index=False)
+    result = MODULE.evaluate(path, "response_value", None, ["expr_1"], 0.5)
+    assert result["group"] == "depmap_id"
