@@ -11,3 +11,5 @@ The complete-case cohort is defined by `depmap_id` availability in expression, c
 Copy-number availability is the limiting modality. The primary complete-case analyses should therefore report these cohort sizes explicitly, while missing-modality analyses should retain the larger partially observed cohorts rather than silently dropping them.
 
 No feature-level join has been performed yet; this report is based only on identifier overlap.
+
+The first deterministic GDSC1 split manifest uses seed `20260821`: 201,225/50,307 pair rows, 758/190 held-out cell-line groups, and 252/64 held-out drug groups for train/test respectively. The same split generator will be applied to CTD² and GDSC2.

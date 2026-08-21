@@ -1,0 +1,21 @@
+{
+  "source": "data/processed/response_gdsc1_long.csv",
+  "seed": 20260821,
+  "rows": 251532,
+  "pair_held_out": {
+    "train_rows": 201225,
+    "test_rows": 50307
+  },
+  "cell_line_held_out": {
+    "train_rows": 201744,
+    "test_rows": 49788,
+    "train_groups": 758,
+    "test_groups": 190
+  },
+  "drug_held_out": {
+    "train_rows": 198914,
+    "test_rows": 52618,
+    "train_groups": 252,
+    "test_groups": 64
+  }
+}
