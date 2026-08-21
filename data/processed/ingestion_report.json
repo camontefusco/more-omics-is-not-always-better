@@ -1,0 +1,29 @@
+{
+  "ctd2": {
+    "rows": 346553,
+    "cell_lines": 810,
+    "drugs": 544,
+    "path": "data/processed/response_ctd2_long.csv"
+  },
+  "gdsc1": {
+    "rows": 251532,
+    "cell_lines": 948,
+    "drugs": 316,
+    "path": "data/processed/response_gdsc1_long.csv"
+  },
+  "gdsc2": {
+    "rows": 230149,
+    "cell_lines": 947,
+    "drugs": 286,
+    "path": "data/processed/response_gdsc2_long.csv"
+  },
+  "modality_availability": {
+    "counts": {
+      "expression": 1719,
+      "copy_number": 1118,
+      "mutation": 1968
+    },
+    "union": 2044,
+    "intersection": 1105
+  }
+}
