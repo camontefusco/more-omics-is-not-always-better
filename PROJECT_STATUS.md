@@ -7,4 +7,15 @@
 - [x] Google Drive project folder created
 - [x] Private GitHub repository created
 - [x] Git initialized and first commit made
-- [ ] Novelty search started
+- [x] Novelty search and novelty challenge set recorded
+- [x] Initial raw-data provenance, checksums, and locked manifest recorded
+- [x] GDSC1, GDSC2, and CTD² ingestion, harmonization, and grouped splits completed
+- [x] Exploratory unimodal/fusion baselines completed for five GDSC1 drugs
+- [x] Masked uncertainty calibration replicated across 15 drug-dataset evaluations
+- [ ] Complete mechanism-of-action mapping across the analysis drug universe
+- [ ] Run final repeated-seed modality and cross-study performance analyses
+- [ ] Produce publication figures, manuscript, and reproducibility release package
+
+## Current evidence status
+
+The repository is analysis-ready and reproducible for the locked exploratory runs, but not publication-final. The final-gates audit passes the manifest and automated tests; the MoA audit currently maps 5 of 316 GDSC1 response compounds, so mechanism-stratified conclusions remain limited to the mapped exploratory subset.
