@@ -1,17 +1,17 @@
 # Formal drug-held-out benchmark note
 
-The combined 15-drug outer-joined table was evaluated with drug-grouped held-out splits at seeds 20260821, 20260822, and 20260823. Each fold selected 2,000 features per modality using training-drug rows only and fit expression, copy-number, mutation, and fusion Ridge models.
+The combined 15-drug outer-joined table was evaluated with drug-grouped held-out splits at seeds 20260821, 20260822, and 20260823. Each fold selected 2,000 features per modality from the complete raw feature universe using training-drug rows only and fit expression, copy-number, mutation, and fusion Ridge models.
 
 | Seed | Expression RMSE | Fusion RMSE | Fusion delta |
 |---:|---:|---:|---:|
-| 20260821 | 0.1481 | 0.1326 | −0.0155 |
-| 20260822 | 0.2174 | 0.2148 | −0.0026 |
-| 20260823 | 0.2535 | 0.2542 | +0.0007 |
-| **Mean** | **0.2063** | **0.2005** | **−0.0058** |
+| 20260821 | 0.1696 | 0.1672 | −0.0024 |
+| 20260822 | 0.2538 | 0.2527 | −0.0011 |
+| 20260823 | 0.2329 | 0.2326 | −0.0003 |
+| **Mean** | **0.2188** | **0.2175** | **−0.0013** |
 
-Fusion improved seed-level RMSE on two splits and worsened slightly on one. The reported mean is the arithmetic mean of split-level RMSE values, not a pooled observation-level RMSE. This supports a modest, split-sensitive incremental effect rather than a universal fusion advantage.
+Fusion improved seed-level RMSE slightly on all three splits. The reported mean is the arithmetic mean of split-level RMSE values, not a pooled observation-level RMSE. This supports a small incremental effect rather than a universal fusion advantage.
 
-The benchmark implementation is `scripts/run_drug_heldout_benchmark.py`; split manifests are written under `data/processed/drug_heldout_splits/`.
+The benchmark implementation is `scripts/run_full_universe_benchmark.py`; split manifests are written under `data/processed/full_universe_manifests/`.
 
 The corrected modality-level availability strata were independently recomputed from each persisted split manifest and the combined outer table. The resulting complete/missing/total test-row counts are:
 

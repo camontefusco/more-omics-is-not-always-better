@@ -2,9 +2,9 @@
 
 ## Frozen and versioned
 
-- `data/processed/leave_one_dataset_out_results.json`
-- `data/processed/drug_heldout_results_20260821.json`, `20260822.json`, and `20260823.json`
-- `data/processed/drug_heldout_splits/`
+- `data/processed/full_universe_lood_results.json`
+- `data/processed/full_universe_20260821.json`, `20260822.json`, and `20260823.json`
+- `data/processed/full_universe_manifests/` and `data/processed/full_universe_lood_manifests/`
 - `data/processed/cross_dataset_modality_seeds.json`
 - `data/processed/cross_dataset_missingness_summary.json`
 - `data/processed/structured_missingness_outer.json`
