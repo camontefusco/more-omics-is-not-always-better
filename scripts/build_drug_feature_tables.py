@@ -20,7 +20,8 @@ def build(response: Path, modality_paths: dict[str, Path], drugs: list[str], out
     output.mkdir(parents=True, exist_ok=True)
     reports = []
     for drug in drugs:
-        response_subset = response_frame[response_frame["drug_id_raw"] == drug][["depmap_id", "response_value"]].dropna()
+        response_subset = response_frame[response_frame["drug_id_raw"] == drug][["depmap_id", "response_value"]].dropna().copy()
+        response_subset["drug_id_raw"] = drug
         table = response_subset.merge(joined, on="depmap_id", how="inner", validate="one_to_one")
         path = output / (drug.replace(" ", "_").replace("/", "-") + ".csv")
         table.to_csv(path, index=False)
