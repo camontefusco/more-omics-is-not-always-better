@@ -14,7 +14,7 @@ Validation: standard response-prediction measures include RMSE and MAE; we repor
 
 Main claim and significance: adding modalities should be judged by incremental value and transferability rather than dimensionality alone. The finding that fusion fails under cross-study transfer is directly relevant to information-fusion systems operating across heterogeneous sources.
 
-Evidence: all formal splits, feature-selection rules, result tables, figures, source data, tests, and an identical reproducibility rerun are versioned in the repository. The manuscript explicitly limits claims to the prespecified 15-compound universe and identifies the lack of broad same-drug cross-study replication as a limitation.
+Evidence: all formal splits, feature-selection rules, derived result tables, figures, tests, and an identical reproducibility rerun are versioned in the repository. Raw provider files are not redistributed. The manuscript explicitly limits claims to the prespecified 15-compound universe and identifies the lack of broad same-drug cross-study replication as a limitation.
 
 This manuscript has not been published previously and is not under consideration elsewhere. All authors will approve the submitted version and authorship list before submission.
 

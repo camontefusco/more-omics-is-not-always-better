@@ -1,4 +1,99 @@
 {
+  "AZD-8055": {
+    "rows": 779,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 0.9845956354300385,
+      "copy_number": 0.7073170731707317,
+      "mutation": 0.9871630295250321
+    },
+    "all_modality_complete_case_fraction": 0.7047496790757382,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.04653163250445643,
+      "copy_number__expression": 0.11964018210688307,
+      "copy_number__mutation": -0.1960288824520556
+    }
+  },
+  "LEPTOMYCIN_B": {
+    "rows": 786,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 0.9847328244274809,
+      "copy_number": 0.7048346055979644,
+      "mutation": 0.9885496183206107
+    },
+    "all_modality_complete_case_fraction": 0.7022900763358778,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.05145983280288459,
+      "copy_number__expression": 0.1301217662685073,
+      "copy_number__mutation": -0.19086179608853207
+    }
+  },
+  "OUABAIN": {
+    "rows": 778,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 0.9845758354755784,
+      "copy_number": 0.7095115681233933,
+      "mutation": 0.987146529562982
+    },
+    "all_modality_complete_case_fraction": 0.7069408740359897,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.04501371844634065,
+      "copy_number__expression": 0.12349653647218084,
+      "copy_number__mutation": -0.19465129361744854
+    }
+  },
+  "SR-II-138A": {
+    "rows": 781,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 0.9846350832266325,
+      "copy_number": 0.7106274007682458,
+      "mutation": 0.9871959026888605
+    },
+    "all_modality_complete_case_fraction": 0.708066581306018,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.0541973528622762,
+      "copy_number__expression": 0.12322022620335753,
+      "copy_number__mutation": -0.19256577257589516
+    }
+  },
+  "VINCRISTINE": {
+    "rows": 782,
+    "feature_counts": {
+      "expression": 2000,
+      "copy_number": 2000,
+      "mutation": 2000
+    },
+    "modality_row_availability": {
+      "expression": 0.9846547314578005,
+      "copy_number": 0.7046035805626598,
+      "mutation": 0.9884910485933504
+    },
+    "all_modality_complete_case_fraction": 0.7020460358056266,
+    "row_mean_modality_correlations": {
+      "expression__mutation": -0.05463156188020564,
+      "copy_number__expression": 0.11810402959602974,
+      "copy_number__mutation": -0.190309119750185
+    }
+  },
   "ACY-1215_(GDSC1:264)": {
     "rows": 889,
     "feature_counts": {
@@ -187,101 +282,6 @@
       "expression__mutation": -0.05393794414133652,
       "copy_number__expression": 0.16005731144004923,
       "copy_number__mutation": -0.14701672296801113
-    }
-  },
-  "AZD-8055": {
-    "rows": 779,
-    "feature_counts": {
-      "expression": 2000,
-      "copy_number": 2000,
-      "mutation": 2000
-    },
-    "modality_row_availability": {
-      "expression": 0.9845956354300385,
-      "copy_number": 0.7073170731707317,
-      "mutation": 0.9871630295250321
-    },
-    "all_modality_complete_case_fraction": 0.7047496790757382,
-    "row_mean_modality_correlations": {
-      "expression__mutation": -0.04653163250445643,
-      "copy_number__expression": 0.11964018210688307,
-      "copy_number__mutation": -0.1960288824520556
-    }
-  },
-  "LEPTOMYCIN_B": {
-    "rows": 786,
-    "feature_counts": {
-      "expression": 2000,
-      "copy_number": 2000,
-      "mutation": 2000
-    },
-    "modality_row_availability": {
-      "expression": 0.9847328244274809,
-      "copy_number": 0.7048346055979644,
-      "mutation": 0.9885496183206107
-    },
-    "all_modality_complete_case_fraction": 0.7022900763358778,
-    "row_mean_modality_correlations": {
-      "expression__mutation": -0.05145983280288459,
-      "copy_number__expression": 0.1301217662685073,
-      "copy_number__mutation": -0.19086179608853207
-    }
-  },
-  "OUABAIN": {
-    "rows": 778,
-    "feature_counts": {
-      "expression": 2000,
-      "copy_number": 2000,
-      "mutation": 2000
-    },
-    "modality_row_availability": {
-      "expression": 0.9845758354755784,
-      "copy_number": 0.7095115681233933,
-      "mutation": 0.987146529562982
-    },
-    "all_modality_complete_case_fraction": 0.7069408740359897,
-    "row_mean_modality_correlations": {
-      "expression__mutation": -0.04501371844634065,
-      "copy_number__expression": 0.12349653647218084,
-      "copy_number__mutation": -0.19465129361744854
-    }
-  },
-  "SR-II-138A": {
-    "rows": 781,
-    "feature_counts": {
-      "expression": 2000,
-      "copy_number": 2000,
-      "mutation": 2000
-    },
-    "modality_row_availability": {
-      "expression": 0.9846350832266325,
-      "copy_number": 0.7106274007682458,
-      "mutation": 0.9871959026888605
-    },
-    "all_modality_complete_case_fraction": 0.708066581306018,
-    "row_mean_modality_correlations": {
-      "expression__mutation": -0.0541973528622762,
-      "copy_number__expression": 0.12322022620335753,
-      "copy_number__mutation": -0.19256577257589516
-    }
-  },
-  "VINCRISTINE": {
-    "rows": 782,
-    "feature_counts": {
-      "expression": 2000,
-      "copy_number": 2000,
-      "mutation": 2000
-    },
-    "modality_row_availability": {
-      "expression": 0.9846547314578005,
-      "copy_number": 0.7046035805626598,
-      "mutation": 0.9884910485933504
-    },
-    "all_modality_complete_case_fraction": 0.7020460358056266,
-    "row_mean_modality_correlations": {
-      "expression__mutation": -0.05463156188020564,
-      "copy_number__expression": 0.11810402959602974,
-      "copy_number__mutation": -0.190309119750185
     }
   }
 }

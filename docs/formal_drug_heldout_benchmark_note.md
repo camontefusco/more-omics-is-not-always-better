@@ -9,7 +9,7 @@ The combined 15-drug outer-joined table was evaluated with drug-grouped held-out
 | 20260823 | 0.2535 | 0.2542 | +0.0007 |
 | **Mean** | **0.2063** | **0.2005** | **−0.0058** |
 
-Fusion improved pooled RMSE on two seeds and worsened slightly on one. This supports a modest, split-sensitive incremental effect rather than a universal fusion advantage.
+Fusion improved seed-level RMSE on two splits and worsened slightly on one. The reported mean is the arithmetic mean of split-level RMSE values, not a pooled observation-level RMSE. This supports a modest, split-sensitive incremental effect rather than a universal fusion advantage.
 
 The benchmark implementation is `scripts/run_drug_heldout_benchmark.py`; split manifests are written under `data/processed/drug_heldout_splits/`.
 
@@ -17,8 +17,8 @@ The corrected modality-level availability strata were independently recomputed f
 
 | Seed | Complete | Missing | Total |
 |---:|---:|---:|---:|
-| 20260821 | 1,513 | 1,046 | 2,559 |
-| 20260822 | 1,458 | 1,271 | 2,729 |
-| 20260823 | 1,530 | 1,078 | 2,608 |
+| 20260821 | 0 | 2,559 | 2,559 |
+| 20260822 | 0 | 2,729 | 2,729 |
+| 20260823 | 0 | 2,608 | 2,608 |
 
-These counts replace the earlier first-feature-only diagnostic; they classify a row as complete only when all selected features for each modality are available.
+These counts replace the earlier any-feature diagnostic; they classify a row as complete only when all selected features for each modality are available. Under this strict definition, no drug-heldout test row is complete across the full 2,000-feature blocks, so these strata should not be interpreted as evidence that the model had no usable information: the models use median imputation and retain the rows.

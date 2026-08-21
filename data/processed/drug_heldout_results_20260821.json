@@ -7,29 +7,29 @@
       "mae": 0.11794700633942043,
       "rmse": 0.14809591080507692,
       "feature_count": 2000,
-      "complete_case_rows": 1513,
-      "missing_case_rows": 1046
+      "complete_case_rows": 0,
+      "missing_case_rows": 2559
     },
     "copy_number": {
       "mae": 0.12774383915889473,
       "rmse": 0.15934396142580007,
       "feature_count": 2000,
-      "complete_case_rows": 1513,
-      "missing_case_rows": 1046
+      "complete_case_rows": 0,
+      "missing_case_rows": 2559
     },
     "mutation": {
       "mae": 0.11463756461011787,
       "rmse": 0.14350767364354605,
       "feature_count": 2000,
-      "complete_case_rows": 1513,
-      "missing_case_rows": 1046
+      "complete_case_rows": 0,
+      "missing_case_rows": 2559
     },
     "fusion": {
       "mae": 0.10470515232964536,
       "rmse": 0.13261753434004764,
       "feature_count": 6000,
-      "complete_case_rows": 1513,
-      "missing_case_rows": 1046
+      "complete_case_rows": 0,
+      "missing_case_rows": 2559
     }
   },
   "selected_features": {

@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+import pandas as pd
 from docx import Document
 from docx.shared import Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -66,12 +67,12 @@ def main():
     p = doc.add_paragraph(); p.add_run("Keywords: ").bold = True; p.add_run("information fusion; drug response; multi-omics; cancer; missing data; cross-study validation")
 
     add_heading(doc, "1. Introduction", 1)
-    add_body(doc, "Cancer pharmacogenomics increasingly combines multiple molecular assays to predict drug response. More measurements can capture complementary biology, but they also increase dimensionality, missingness, and sensitivity to study-specific measurement processes. We therefore prespecified a workflow that treats incremental predictive value, missingness, calibration, and modality conflict as joint evaluation targets.")
+    add_body(doc, "Cancer pharmacogenomics increasingly combines multiple molecular assays to predict drug response. More measurements can capture complementary biology, but they also increase dimensionality, missingness, and sensitivity to study-specific measurement processes. We therefore specified a workflow that treats incremental predictive value, missingness, and modality conflict as joint evaluation targets.")
     add_heading(doc, "1.1. Brief literature context", 2)
     add_body(doc, "Large cell-line resources established the empirical basis for this task. The Cancer Cell Line Encyclopedia and the Genomics of Drug Sensitivity in Cancer linked molecular profiles to pharmacologic response across large panels, while later DepMap releases expanded standardized molecular and dependency data [1–3]. These resources also show why response prediction is not purely a genomic problem: lineage and multiple molecular data types contribute to drug sensitivity associations [2].")
     add_body(doc, "Prior computational work has used classical machine learning, deep learning, and multimodal integration for drug-response prediction [4–6]. MOLI is a prominent late-integration example that combines expression, copy-number, and mutation features and reported gains in external validations [5]. However, published comparisons often differ in response metric, drug universe, feature processing, split design, and external-study transfer. The present study addresses a narrower methodological question: whether adding modalities improves a fixed, leakage-controlled baseline under drug-heldout and cross-study evaluation. It is intended as a validation benchmark, not as a competing deep-learning model.")
     add_heading(doc, "1.2. Research questions and hypotheses", 2)
-    add_body(doc, "We asked three questions: (Q1) Does feature-level fusion improve prediction when drugs, rather than cell lines alone, are held out? (Q2) Does any improvement transfer when an entire response dataset is held out? (Q3) Are fusion effects accompanied by structured missingness or modality redundancy? We preregistered the following directional expectations for interpretation: H1, fusion may improve drug-heldout prediction relative to expression alone; H2, fusion gains may not transfer across datasets; and H3, missingness and redundancy may vary across source datasets and coincide with unstable fusion effects. These are benchmark hypotheses, not claims of biological causality.")
+    add_body(doc, "We asked three questions: (Q1) Does feature-level fusion improve prediction when drugs, rather than cell lines alone, are held out? (Q2) Does any improvement transfer when an entire response dataset is held out? (Q3) Are fusion effects accompanied by structured missingness or modality redundancy? We specified the following directional expectations before interpreting the results: H1, fusion may improve drug-heldout prediction relative to expression alone; H2, fusion gains may not transfer across datasets; and H3, missingness and redundancy may vary across source datasets and coincide with unstable fusion effects. These are benchmark hypotheses, not claims of biological causality.")
 
     add_heading(doc, "2. Methods", 1)
     add_body(doc, "We harmonized DepMap response and molecular data from GDSC1, GDSC2, and CTD² using locked release identifiers. Expression, copy-number, and damaging-mutation features were evaluated separately and in concatenated fusion models. Within each held-out fold, the top 2,000 features per modality were selected using training rows only. Models used median imputation, standardization, and Ridge regression. Drug-held-out splits grouped rows by drug; leave-one-dataset-out folds held out each source dataset in turn. Outer joins were retained for structured missingness analyses.")
@@ -90,7 +91,7 @@ def main():
 
     add_heading(doc, "3. Results", 1)
     add_heading(doc, "3.1. Drug-heldout validation", 2)
-    add_body(doc, "Drug-held-out performance was split-sensitive: fusion improved two of three seeds and worsened slightly on one. The mean RMSE difference was modest and should not be interpreted as a universal gain. Per-seed and per-model values are reported in Table 2 and Supplementary Table S3.")
+    add_body(doc, "Drug-held-out performance was split-sensitive: fusion improved two of three seeds and worsened slightly on one. The mean RMSE across seeds was 0.2005 for fusion versus 0.2063 for expression alone; this arithmetic mean is not a pooled observation-level RMSE and should not be interpreted as a universal gain. Per-seed and per-model values are reported in Table 2 and Supplementary Table S3.")
     add_heading(doc, "3.2. Cross-study transfer", 2)
     add_body(doc, "In leave-one-dataset-out validation, expression was consistently stronger than fusion, with the largest fusion degradation on CTD2. These folds test transfer across source datasets, not replication of the same drug. The signed fusion-minus-expression RMSE deltas are shown in Figure 2 and Supplementary Table S4.")
     add_heading(doc, "3.3. Missingness and redundancy", 2)
@@ -100,6 +101,11 @@ def main():
     for d,f in lood["folds"].items(): rows.append([d, f["metrics"]["expression"]["rmse"], f["metrics"]["copy_number"]["rmse"], f["metrics"]["mutation"]["rmse"], f["metrics"]["fusion"]["rmse"]])
     p=doc.add_paragraph(); p.add_run("Table 1. ").bold=True; p.add_run("Leave-one-dataset-out RMSE.")
     add_table(doc,["Held-out dataset","Expression","Copy number","Mutation","Fusion"], [[r[0]]+[f"{x:.4f}" for x in r[1:]] for r in rows])
+    p=doc.add_paragraph(); p.add_run("Table 2a. ").bold=True; p.add_run("Declared compounds and response-row counts.")
+    compounds=[]
+    for (dataset, drug), n in pd.read_csv(ROOT/"data/processed/combined_15drug_outer_table.csv", usecols=["dataset_id","drug_id_raw"]).groupby(["dataset_id","drug_id_raw"]).size().items():
+        compounds.append([dataset, drug, str(int(n))])
+    add_table(doc,["Dataset","Compound","Response rows"], compounds)
     drug_rows=[]
     for seed in ["20260821","20260822","20260823"]:
         d=json.loads((ROOT/f"data/processed/drug_heldout_results_{seed}.json").read_text()); drug_rows.append([seed, f"{d['metrics']['expression']['rmse']:.4f}", f"{d['metrics']['fusion']['rmse']:.4f}", f"{d['metrics']['fusion']['rmse']-d['metrics']['expression']['rmse']:+.4f}"])
@@ -113,6 +119,7 @@ def main():
             m=d["metrics"][model]
             all_rows.append([seed, model, f"{m['mae']:.4f}", f"{m['rmse']:.4f}", str(m.get("n_features", 2000 if model != "fusion" else 6000))])
     add_table(doc,["Seed","Model","MAE","RMSE","Selected features"],all_rows)
+    doc.add_page_break()
     p=doc.add_paragraph(); p.add_run("Table 4. ").bold=True; p.add_run("Leave-one-dataset-out MAE, RMSE, and evaluation strata.")
     lood_rows=[]
     for dname,f in lood["folds"].items():

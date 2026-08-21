@@ -36,7 +36,7 @@ def run(path: Path, top_k: int, seed: int, split_output: Path | None = None) -> 
         predictions[name] = model.predict(frame.loc[test_idx, cols])
     metrics = {}
     modality_available = {
-        name: frame.loc[test_idx, cols].notna().any(axis=1)
+        name: frame.loc[test_idx, cols].notna().all(axis=1)
         for name, cols in ((name, selected[name]) for name in ("expression", "copy_number", "mutation"))
     }
     missing_stratum = modality_available["expression"] & modality_available["copy_number"] & modality_available["mutation"]

@@ -56,7 +56,7 @@ def run(path: Path, top_k: int, seed: int) -> dict[str, object]:
 
         complete_case = np.ones(len(test), dtype=bool)
         for name in MODALITY_PREFIXES:
-            complete_case &= test[selected[name]].notna().any(axis=1).to_numpy()
+            complete_case &= test[selected[name]].notna().all(axis=1).to_numpy()
         fold_metrics = {}
         for name, columns in selected.items():
             fold_metrics[name] = fit_metrics(train, test, columns)

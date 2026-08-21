@@ -10,7 +10,7 @@ In drug-held-out validation, fusion improved RMSE on two of three repeated split
 
 # 1. Introduction
 
-Cancer pharmacogenomics increasingly combines multiple molecular assays to predict drug response. More measurements can capture complementary biology, but they also increase dimensionality, missingness, and sensitivity to study-specific measurement processes. We therefore prespecified a workflow that treats incremental predictive value, missingness, calibration, and modality conflict as joint evaluation targets.
+Cancer pharmacogenomics increasingly combines multiple molecular assays to predict drug response. More measurements can capture complementary biology, but they also increase dimensionality, missingness, and sensitivity to study-specific measurement processes. We therefore specified a workflow that treats incremental predictive value, missingness, and modality conflict as joint evaluation targets.
 
 ## 1.1. Brief literature context
 
@@ -20,7 +20,7 @@ Prior computational work has used classical machine learning, deep learning, and
 
 ## 1.2. Research questions and hypotheses
 
-We asked three questions: (Q1) Does feature-level fusion improve prediction when drugs, rather than cell lines alone, are held out? (Q2) Does any improvement transfer when an entire response dataset is held out? (Q3) Are fusion effects accompanied by structured missingness or modality redundancy? We preregistered the following directional expectations for interpretation: H1, fusion may improve drug-heldout prediction relative to expression alone; H2, fusion gains may not transfer across datasets; and H3, missingness and redundancy may vary across source datasets and coincide with unstable fusion effects. These are benchmark hypotheses, not claims of biological causality.
+We asked three questions: (Q1) Does feature-level fusion improve prediction when drugs, rather than cell lines alone, are held out? (Q2) Does any improvement transfer when an entire response dataset is held out? (Q3) Are fusion effects accompanied by structured missingness or modality redundancy? We specified the following directional expectations before interpreting the results: H1, fusion may improve drug-heldout prediction relative to expression alone; H2, fusion gains may not transfer across datasets; and H3, missingness and redundancy may vary across source datasets and coincide with unstable fusion effects. These are benchmark hypotheses, not claims of biological causality.
 
 # 2. Methods
 
@@ -38,7 +38,7 @@ We report mean absolute error (MAE) and root mean squared error (RMSE). Fusion d
 
 ### 3.1. Drug-heldout validation
 
-Drug-held-out performance was split-sensitive: fusion improved two of three seeds and worsened slightly on one. The mean RMSE difference was modest and should not be interpreted as a universal gain. Per-seed and per-model values are reported in Table 2 and Supplementary Table S3.
+Drug-held-out performance was split-sensitive: fusion improved two of three seeds and worsened slightly on one. The mean RMSE across seeds was 0.2005 for fusion versus 0.2063 for expression alone; this arithmetic mean should not be interpreted as a pooled observation-level RMSE or a universal gain. Per-seed and per-model values are reported in Table 2 and Supplementary Table S3.
 
 ### 3.2. Cross-study transfer
 

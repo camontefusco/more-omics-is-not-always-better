@@ -57,11 +57,11 @@ def main():
     for drug,x in d.items():
         c=x["row_mean_modality_correlations"]; rows.append([drug,x["rows"],f"{x['modality_row_availability']['expression']:.3f}",f"{x['modality_row_availability']['copy_number']:.3f}",f"{x['modality_row_availability']['mutation']:.3f}",f"{x['all_modality_complete_case_fraction']:.3f}",f"{c.get('copy_number__expression',0):+.3f}",f"{c.get('expression__mutation',0):+.3f}",f"{c.get('copy_number__mutation',0):+.3f}"])
     table(doc,["Drug","Rows","Expr avail.","CN avail.","Mut. avail.","All complete","CN–Expr","Expr–Mut.","CN–Mut."],rows)
-    heading(doc,"S6. Uncertainty calibration summary",1)
+    heading(doc,"S6. Exploratory uncertainty calibration",1)
     d=json.loads((ROOT/"data/processed/cross_dataset_missingness_summary.json").read_text()); rows=[]
     for ds,x in d["datasets"].items(): rows.append([ds,x["drugs"],f"{x['mean_coverage']:.3f}",f"{x['min_coverage']:.3f}",f"{x['max_coverage']:.3f}",x["at_or_above_nominal_90"]])
     table(doc,["Dataset","Drugs","Mean coverage","Min","Max","≥90%"],rows)
-    para(doc,"Nominal coverage target was 90%; each drug evaluation used a fit/calibration/test partition and 25% feature masking in the uncertainty calibration analysis. The pooled mean coverage was 0.911 across 15 evaluations; coverage was not uniformly at or above nominal for every drug.")
+    para(doc,"This analysis is exploratory and is not part of the primary fusion benchmark. A nominal 90% coverage target was evaluated using fit/calibration/test partitions and 25% feature masking. Mean coverage was 0.911 across 15 drug evaluations, but coverage was not uniformly at or above nominal for every drug. These results do not establish a guaranteed interval and are not used for the primary performance claims.")
     heading(doc,"S7. Artifact and software manifest",1)
     table(doc,["Artifact","Role"],[["configs/dataset_manifest.yaml","Locked data releases and provenance"],["configs/requirements-release.txt","Runtime version pins"],["data/processed/drug_heldout_splits/","Persisted grouped split manifests"],["data/processed/drug_heldout_results_*.json","Formal repeated-seed metrics"],["data/processed/leave_one_dataset_out_results.json","Cross-study metrics"],["data/processed/modality_conflict_summary.json","Signed fusion-minus-expression deltas"],["scripts/run_drug_heldout_benchmark.py","Drug-heldout runner"],["scripts/run_leave_one_dataset_out.py","LOOD runner"],["scripts/audit_structured_missingness.py","Availability/redundancy audit"],["scripts/summarize_modality_conflict.py","Conflict summary"],["tests/","13 automated tests"]])
     heading(doc,"S8. Limitations and interpretation guardrails",1)
