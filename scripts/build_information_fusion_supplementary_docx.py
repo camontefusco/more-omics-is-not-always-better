@@ -34,22 +34,22 @@ def main():
     p=doc.add_paragraph(); p.alignment=WD_ALIGN_PARAGRAPH.CENTER; p.add_run("Carlos Victor Montefusco-Pereira\nInformation Fusion submission package")
     heading(doc,"S1. Reproducibility protocol",1)
     para(doc,"All formal results use the declared 15-compound universe: five GDSC1 compounds, five GDSC2 compounds, and five CTD² compounds. Molecular features are expression, copy number, and damaging mutations. For each training fold, the top 2,000 features per modality are selected by training-set variance only. The model pipeline is median imputation, standardization, and Ridge regression with alpha=1.0. Fusion concatenates the three selected modality blocks (6,000 features).")
-    para(doc,"Drug-heldout splits use GroupShuffleSplit with drug_id_raw as the grouping variable, test fraction 0.2, and persisted seeds 20260821, 20260822, and 20260823. Leave-one-dataset-out folds hold out CTD2, GDSC1, or GDSC2 in turn. RMSE and MAE are calculated on the complete held-out response rows. Missingness strata classify a row as complete only when all selected features for each modality are available; model fitting uses median imputation.")
+    para(doc,"Drug-heldout splits use GroupShuffleSplit with drug_id_raw as the grouping variable, test fraction 0.2, and persisted seeds 20260821, 20260822, and 20260823. Leave-one-dataset-out folds hold out CTD2, GDSC1, or GDSC2 in turn. RMSE and MAE are calculated on held-out response rows. The full-universe benchmark records model metrics and feature manifests; strict all-selected-feature missingness counts are not used as a performance filter, and model fitting uses median imputation.")
     heading(doc,"S2. Drug-heldout split manifests",1)
     table(doc,["Seed","Train drugs","Test drugs","Manifest"],[["20260821","12","3","drug_split_20260821.json"],["20260822","12","3","drug_split_20260822.json"],["20260823","12","3","drug_split_20260823.json"]])
     heading(doc,"S3. Drug-heldout results",1)
     rows=[]
     for seed in ["20260821","20260822","20260823"]:
-        d=json.loads((ROOT/f"data/processed/drug_heldout_results_{seed}.json").read_text())
+        d=json.loads((ROOT/f"data/processed/full_universe_{seed}.json").read_text())
         for m in ["expression","copy_number","mutation","fusion"]:
-            x=d["metrics"][m]; rows.append([seed,m,f"{x['mae']:.4f}",f"{x['rmse']:.4f}",x["feature_count"],x["complete_case_rows"],x["missing_case_rows"]])
+            x=d["metrics"][m]; rows.append([seed,m,f"{x['mae']:.4f}",f"{x['rmse']:.4f}",x["feature_count"],x.get("complete_case_rows","not computed"),x.get("missing_case_rows","not computed")])
     table(doc,["Seed","Model","MAE","RMSE","Features","Complete","Missing"],rows)
     heading(doc,"S4. Leave-one-dataset-out results",1)
-    d=json.loads((ROOT/"data/processed/leave_one_dataset_out_results.json").read_text())
+    d=json.loads((ROOT/"data/processed/full_universe_lood_results.json").read_text())
     rows=[]
     for held,fold in d["folds"].items():
         for m in ["expression","copy_number","mutation","fusion"]:
-            x=fold["metrics"][m]; rows.append([held,m,fold["train_rows"],fold["test_rows"],f"{x['mae']:.4f}",f"{x['rmse']:.4f}",x["complete_case_rows"],x["missing_case_rows"]])
+            x=fold["metrics"][m]; rows.append([held,m,fold["train_rows"],fold["test_rows"],f"{x['mae']:.4f}",f"{x['rmse']:.4f}",x.get("complete_case_rows","not computed"),x.get("missing_case_rows","not computed")])
     table(doc,["Held-out","Model","Train rows","Test rows","MAE","RMSE","Complete","Missing"],rows)
     heading(doc,"S5. Structured missingness and redundancy",1)
     para(doc,"The outer-joined tables preserve modality availability instead of silently restricting the analysis to complete cases. The summary below reports row-level availability and correlations between row means. These correlations are a compact redundancy audit, not a feature-level independence test.")

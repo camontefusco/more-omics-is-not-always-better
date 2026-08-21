@@ -24,7 +24,7 @@ We asked three questions: (Q1) Does feature-level fusion improve prediction when
 
 # 2. Methods
 
-We harmonized DepMap response and molecular data from GDSC1, GDSC2, and CTD² using locked release identifiers. Expression, copy-number, and damaging-mutation features were evaluated separately and in concatenated fusion models. Within each held-out fold, the top 2,000 features per modality were selected using training rows only. Models used median imputation, standardization, and Ridge regression. Drug-held-out splits grouped rows by drug; leave-one-dataset-out folds held out each source dataset in turn. Outer joins were retained for structured missingness analyses.
+We harmonized DepMap response and molecular data from GDSC1, GDSC2, and CTD² using locked release identifiers. Expression, copy-number, and damaging-mutation features were evaluated separately and in concatenated early-fusion models. Within each held-out fold, the top 2,000 features per modality were selected from the full raw modality universe using training rows only. Models used median imputation, standardization, and Ridge regression. Drug-held-out splits grouped rows by drug; leave-one-dataset-out folds held out each source dataset in turn. Outer joins were retained for structured missingness analyses.
 
 ## 2.1. Evaluation scope
 
@@ -38,7 +38,7 @@ We report mean absolute error (MAE) and root mean squared error (RMSE). Fusion d
 
 ### 3.1. Drug-heldout validation
 
-Drug-held-out performance was split-sensitive: fusion improved two of three seeds and worsened slightly on one. The mean RMSE across seeds was 0.2005 for fusion versus 0.2063 for expression alone; this arithmetic mean should not be interpreted as a pooled observation-level RMSE or a universal gain. Per-seed and per-model values are reported in Table 2 and Supplementary Table S3.
+Drug-held-out performance showed a small improvement in all three full-universe splits. Mean RMSE across seeds was 0.2175 for fusion versus 0.2188 for expression alone; this is an arithmetic mean of split-level RMSE values, not a pooled observation-level RMSE. Per-seed and per-model values are reported in Table 2 and Supplementary Table S3.
 
 ### 3.2. Cross-study transfer
 
@@ -52,7 +52,7 @@ Row-level modality summaries showed weak-to-moderate correlations, while outer-j
 
 The results do not support a universal multimodal advantage. Fusion can help within a drug-held-out universe yet fail under study transfer, consistent with domain-specific response scales, assay coverage, and feature distributions. The study is limited by the small prespecified 15-drug universe, limited same-drug overlap across datasets, and the use of compact Ridge baselines rather than a broad model class. The conclusions are therefore about evaluation design and conditional predictive value, not a claim that any modality is biologically uninformative.
 
-H1 was partially supported: fusion improved two of three drug-heldout seeds, but the effect was small and split-sensitive. H2 was supported in this evaluation: fusion degraded performance in all three leave-one-dataset-out folds. H3 was supported descriptively because modality availability and row-level correlations differed across source tables, but the study does not identify a causal explanation. These findings argue for reporting fusion failures alongside gains and for treating cross-study validation as a separate target from within-dataset drug generalization.
+H1 was supported in the full-universe drug-heldout benchmark, although the improvement was small in every seed. H2 was supported in this evaluation: fusion degraded performance in all three leave-one-dataset-out folds. H3 was supported descriptively because modality availability and row-level correlations differed across source tables, but the study does not identify a causal explanation. These findings argue for reporting effect size and transfer failures alongside the direction of the fusion comparison.
 
 # 5. Data and code availability
 

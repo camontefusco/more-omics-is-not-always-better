@@ -91,12 +91,12 @@ def main():
 
     add_heading(doc, "3. Results", 1)
     add_heading(doc, "3.1. Drug-heldout validation", 2)
-    add_body(doc, "Drug-held-out performance was split-sensitive: fusion improved two of three seeds and worsened slightly on one. The mean RMSE across seeds was 0.2005 for fusion versus 0.2063 for expression alone; this arithmetic mean is not a pooled observation-level RMSE and should not be interpreted as a universal gain. Per-seed and per-model values are reported in Table 2 and Supplementary Table S3.")
+    add_body(doc, "Drug-held-out performance showed a small improvement in all three full-universe splits. The mean RMSE across seeds was 0.2175 for fusion versus 0.2188 for expression alone; this arithmetic mean is not a pooled observation-level RMSE and should not be interpreted as a universal gain. Per-seed and per-model values are reported in Table 2 and Supplementary Table S3.")
     add_heading(doc, "3.2. Cross-study transfer", 2)
     add_body(doc, "In leave-one-dataset-out validation, expression was consistently stronger than fusion, with the largest fusion degradation on CTD2. These folds test transfer across source datasets, not replication of the same drug. The signed fusion-minus-expression RMSE deltas are shown in Figure 2 and Supplementary Table S4.")
     add_heading(doc, "3.3. Missingness and redundancy", 2)
     add_body(doc, "Row-level modality summaries showed weak-to-moderate correlations, while outer-joined tables showed dataset-dependent modality availability. These analyses describe data structure and model behavior; they do not establish that missingness or redundancy caused the observed performance differences.")
-    lood = json.loads((ROOT/"data/processed/leave_one_dataset_out_results.json").read_text())
+    lood = json.loads((ROOT/"data/processed/full_universe_lood_results.json").read_text())
     rows=[]
     for d,f in lood["folds"].items(): rows.append([d, f["metrics"]["expression"]["rmse"], f["metrics"]["copy_number"]["rmse"], f["metrics"]["mutation"]["rmse"], f["metrics"]["fusion"]["rmse"]])
     p=doc.add_paragraph(); p.add_run("Table 1. ").bold=True; p.add_run("Leave-one-dataset-out RMSE.")
@@ -108,13 +108,13 @@ def main():
     add_table(doc,["Dataset","Compound","Response rows"], compounds)
     drug_rows=[]
     for seed in ["20260821","20260822","20260823"]:
-        d=json.loads((ROOT/f"data/processed/drug_heldout_results_{seed}.json").read_text()); drug_rows.append([seed, f"{d['metrics']['expression']['rmse']:.4f}", f"{d['metrics']['fusion']['rmse']:.4f}", f"{d['metrics']['fusion']['rmse']-d['metrics']['expression']['rmse']:+.4f}"])
+        d=json.loads((ROOT/f"data/processed/full_universe_{seed}.json").read_text()); drug_rows.append([seed, f"{d['metrics']['expression']['rmse']:.4f}", f"{d['metrics']['fusion']['rmse']:.4f}", f"{d['metrics']['fusion']['rmse']-d['metrics']['expression']['rmse']:+.4f}"])
     p=doc.add_paragraph(); p.add_run("Table 2. ").bold=True; p.add_run("Drug-held-out repeated-seed RMSE.")
     add_table(doc,["Seed","Expression","Fusion","Fusion delta"],drug_rows)
     p=doc.add_paragraph(); p.add_run("Table 3. ").bold=True; p.add_run("Drug-held-out MAE and RMSE by model and seed.")
     all_rows=[]
     for seed in ["20260821","20260822","20260823"]:
-        d=json.loads((ROOT/f"data/processed/drug_heldout_results_{seed}.json").read_text())
+        d=json.loads((ROOT/f"data/processed/full_universe_{seed}.json").read_text())
         for model in ["expression","copy_number","mutation","fusion"]:
             m=d["metrics"][model]
             all_rows.append([seed, model, f"{m['mae']:.4f}", f"{m['rmse']:.4f}", str(m.get("n_features", 2000 if model != "fusion" else 6000))])
@@ -132,7 +132,7 @@ def main():
 
     add_heading(doc, "4. Discussion", 1)
     add_body(doc, "The results do not support a universal multimodal advantage. Fusion can help within a drug-held-out universe yet fail under study transfer, consistent with domain-specific response scales, assay coverage, and feature distributions. The study is limited by the small prespecified 15-drug universe, limited same-drug overlap across datasets, and the use of compact Ridge baselines rather than a broad model class. The conclusions are therefore about evaluation design and conditional predictive value, not a claim that any modality is biologically uninformative.")
-    add_body(doc, "H1 was partially supported: fusion improved two of three drug-heldout seeds, but the effect was small and split-sensitive. H2 was supported in this evaluation: fusion degraded performance in all three leave-one-dataset-out folds. H3 was supported descriptively because modality availability and row-level correlations differed across source tables, but the study does not identify a causal explanation. These findings argue for reporting fusion failures alongside gains and for treating cross-study validation as a separate target from within-dataset drug generalization.")
+    add_body(doc, "H1 was supported in the full-universe drug-heldout benchmark, although the improvement was small in every seed. H2 was supported in this evaluation: fusion degraded performance in all three leave-one-dataset-out folds. H3 was supported descriptively because modality availability and row-level correlations differed across source tables, but the study does not identify a causal explanation. These findings argue for reporting effect size and transfer failures alongside the direction of the fusion comparison.")
     add_heading(doc, "4.1. Interpretation of the within-dataset result", 2)
     add_body(doc, "The drug-held-out result is compatible with a limited benefit from complementary features when the training and test rows share a source-defined response system. The improvement is small relative to the seed-to-seed variation, and two favorable splits do not establish a stable effect across an expanded compound universe. We therefore describe this result as conditional evidence that fusion can be useful under a matched evaluation regime, not as evidence that fusion should replace a strong single-modality baseline.")
     add_heading(doc, "4.2. Interpretation of cross-study degradation", 2)

@@ -14,3 +14,13 @@ Fusion improved RMSE in all three full-universe splits, but the mean improvement
 Raw feature counts were 19,215 expression, 18,613 copy-number, and 19,505 mutation features. Each fold saved its train/test drug manifest and exact selected-feature lists under `data/processed/full_universe_manifests/`.
 
 This benchmark remains limited to variance-based selection and the fixed Ridge model. It does not establish that the selected feature set is optimal or that the small fusion gain will transfer across datasets.
+
+## Full-universe LOOD comparison
+
+| Held-out dataset | Expression RMSE | Fusion RMSE | Fusion − expression |
+|---|---:|---:|---:|
+| CTD2 | 0.3231 | 0.3238 | +0.0007 |
+| GDSC1 | 0.2322 | 0.2339 | +0.0017 |
+| GDSC2 | 0.2347 | 0.2387 | +0.0040 |
+
+Fusion was slightly worse than expression in all three full-universe LOOD folds. The effect is smaller than in the earlier candidate-table results but has the same direction. Thus, the consistent interpretation is a small within-universe fusion benefit and a small cross-study transfer penalty under this benchmark.

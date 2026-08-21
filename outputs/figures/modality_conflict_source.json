@@ -3,53 +3,53 @@
     {
       "validation": "leave_one_dataset_out",
       "held_out": "CTD2",
-      "expression_rmse": 0.32762095974770183,
-      "fusion_rmse": 0.5649289591335253,
-      "fusion_delta_rmse": 0.23730799938582342,
+      "expression_rmse": 0.323107166958882,
+      "fusion_rmse": 0.32377844233273806,
+      "fusion_delta_rmse": 0.0006712753738560839,
       "outcome": "harms"
     },
     {
       "validation": "leave_one_dataset_out",
       "held_out": "GDSC1",
-      "expression_rmse": 0.25845619407825704,
-      "fusion_rmse": 0.3100759777411317,
-      "fusion_delta_rmse": 0.051619783662874674,
+      "expression_rmse": 0.23220774744248782,
+      "fusion_rmse": 0.23390641760742772,
+      "fusion_delta_rmse": 0.0016986701649399083,
       "outcome": "harms"
     },
     {
       "validation": "leave_one_dataset_out",
       "held_out": "GDSC2",
-      "expression_rmse": 0.22910867154583042,
-      "fusion_rmse": 0.28698455193279754,
-      "fusion_delta_rmse": 0.057875880386967116,
+      "expression_rmse": 0.2347409874950651,
+      "fusion_rmse": 0.23871846188489454,
+      "fusion_delta_rmse": 0.003977474389829427,
       "outcome": "harms"
     },
     {
       "validation": "drug_heldout",
       "held_out": "20260821",
-      "expression_rmse": 0.14809591080507692,
-      "fusion_rmse": 0.13261753434004764,
-      "fusion_delta_rmse": -0.015478376465029281,
+      "expression_rmse": 0.16960098405641585,
+      "fusion_rmse": 0.1672396469868774,
+      "fusion_delta_rmse": -0.0023613370695384495,
       "outcome": "helps"
     },
     {
       "validation": "drug_heldout",
       "held_out": "20260822",
-      "expression_rmse": 0.2173729422011342,
-      "fusion_rmse": 0.21479498595895166,
-      "fusion_delta_rmse": -0.002577956242182544,
+      "expression_rmse": 0.2537880564596692,
+      "fusion_rmse": 0.2527015063164616,
+      "fusion_delta_rmse": -0.0010865501432075764,
       "outcome": "helps"
     },
     {
       "validation": "drug_heldout",
       "held_out": "20260823",
-      "expression_rmse": 0.2535020096336096,
-      "fusion_rmse": 0.2541520926098025,
-      "fusion_delta_rmse": 0.0006500829761929006,
-      "outcome": "harms"
+      "expression_rmse": 0.23293822664232045,
+      "fusion_rmse": 0.2326335458084729,
+      "fusion_delta_rmse": -0.0003046808338475482,
+      "outcome": "helps"
     }
   ],
-  "help_count": 2,
-  "harm_count": 4,
+  "help_count": 3,
+  "harm_count": 3,
   "interpretation": "Fusion effects are conditional when the sign of fusion_delta_rmse varies across held-out folds."
 }
