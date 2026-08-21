@@ -20,4 +20,4 @@ This manuscript has not been published previously and is not under consideration
 
 Sincerely,
 
-**[CORRESPONDING AUTHOR NAME]**
+**Carlos Victor Montefusco-Pereira**

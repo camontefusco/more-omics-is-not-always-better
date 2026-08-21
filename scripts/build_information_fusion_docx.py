@@ -56,10 +56,10 @@ def main():
 
     title = doc.add_paragraph(); title.alignment = WD_ALIGN_PARAGRAPH.CENTER
     run = title.add_run("When More Omics Is Not Always Better: Drug- and Dataset-Conditional Value of Multimodal Cancer Pharmacogenomics"); run.bold = True; run.font.size = Pt(20); run.font.color.rgb = RGBColor(0,0,0)
-    p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; p.add_run("Carlos Victor Montefusco-Pereira\n").bold = True; p.add_run("Independent Researcher in Data Science and Artificial Intelligence in Industrial Pharmaceutics\nBerlin, Germany\nCorresponding author: [ADD EMAIL]")
+    p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; p.add_run("Carlos Victor Montefusco-Pereira\n").bold = True; p.add_run("Independent Researcher in Data Science and Artificial Intelligence in Industrial Pharmaceutics\nBerlin, Germany\nCorresponding author: cmontefusco@gmail.com")
     doc.add_paragraph()
     p = doc.add_paragraph(); p.add_run("Article type: ").bold = True; p.add_run("Research article")
-    p = doc.add_paragraph(); p.add_run("Declarations: ").bold = True; p.add_run("Funding, competing interests, CRediT, and generative-AI declaration to be completed before submission.")
+    p = doc.add_paragraph(); p.add_run("Declarations: ").bold = True; p.add_run("No external funding. The author declares no competing interests. CRediT: Carlos Victor Montefusco-Pereira—Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing, Visualization, and Project administration. Generative AI tools assisted with language editing, document formatting, and coding under author review; the author verified the final content.")
     doc.add_page_break()
 
     add_heading(doc, "Abstract", 1)

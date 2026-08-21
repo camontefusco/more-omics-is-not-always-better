@@ -1,0 +1,5 @@
+• Drug-heldout fusion gains were split-sensitive across three seeds.
+• Fusion worsened performance in every leave-one-dataset-out fold.
+• Structured missingness varied across expression, copy number, and mutation.
+• Fold-local selection limits leakage in multimodal response benchmarks.
+• More omics did not guarantee better cross-study prediction.

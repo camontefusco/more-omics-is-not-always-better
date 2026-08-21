@@ -14,14 +14,14 @@ Carlos Victor Montefusco-Pereira¹
 
 ## Corresponding author
 
-Carlos Victor Montefusco-Pereira, Berlin, Germany — **[ADD EMAIL]**
+Carlos Victor Montefusco-Pereira, Berlin, Germany — **cmontefusco@gmail.com**
 
 ## Declarations
 
-Funding: [STATE FUNDING OR “This research received no external funding.”]
+Funding: This research received no external funding.
 
-Competing interests: [STATE COMPETING INTERESTS OR “The authors declare no competing interests.”]
+Competing interests: The author declares no competing interests.
 
-Author contributions (CRediT): [COMPLETE AFTER AUTHOR LIST IS FINAL]
+Author contributions (CRediT): Carlos Victor Montefusco-Pereira: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing—original draft, Writing—review and editing, Visualization, and Project administration.
 
-Generative AI declaration: [STATE WHETHER GENERATIVE AI WAS USED IN MANUSCRIPT PREPARATION, FOLLOWING ELSEVIER POLICY]
+Generative AI declaration: Generative AI tools were used for language editing, document formatting, and coding assistance under author review. The author verified the scientific content, analyses, citations, figures, and final manuscript.

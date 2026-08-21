@@ -1,0 +1,1 @@
+Anonymized reviewer package for Information Fusion. Raw provider data are not included. Derived results, figures, manifests, and code remain available in the private project repository. Author identity, affiliation, location, and email were removed from the Word files.
