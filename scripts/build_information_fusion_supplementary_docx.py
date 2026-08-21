@@ -34,12 +34,12 @@ def main():
     p=doc.add_paragraph(); p.alignment=WD_ALIGN_PARAGRAPH.CENTER; p.add_run("Carlos Victor Montefusco-Pereira\nInformation Fusion submission package")
     heading(doc,"S1. Reproducibility protocol",1)
     para(doc,"All formal results use the declared 15-compound universe: five GDSC1 compounds, five GDSC2 compounds, and five CTD² compounds. Molecular features are expression, copy number, and damaging mutations. For each training fold, the top 2,000 features per modality are selected by training-set variance only. The model pipeline is median imputation, standardization, and Ridge regression with alpha=1.0. Fusion concatenates the three selected modality blocks (6,000 features).")
-    para(doc,"Drug-heldout splits use GroupShuffleSplit with drug_id_raw as the grouping variable, test fraction 0.2, and persisted seeds 20260821, 20260822, and 20260823. Leave-one-dataset-out folds hold out CTD2, GDSC1, or GDSC2 in turn. RMSE and MAE are calculated on held-out response rows. The full-universe benchmark records model metrics and feature manifests; strict all-selected-feature missingness counts are not used as a performance filter, and model fitting uses median imputation.")
+    para(doc,"Drug-heldout splits use GroupShuffleSplit with drug_id_raw as the grouping variable, test fraction 0.2, and persisted seeds 20260821 through 20260825. Leave-one-dataset-out folds hold out CTD2, GDSC1, or GDSC2 in turn. RMSE and MAE are calculated on held-out response rows. The full-universe benchmark records model metrics and feature manifests; strict all-selected-feature missingness counts are not used as a performance filter, and model fitting uses median imputation.")
     heading(doc,"S2. Drug-heldout split manifests",1)
-    table(doc,["Seed","Train drugs","Test drugs","Manifest"],[["20260821","12","3","drug_split_20260821.json"],["20260822","12","3","drug_split_20260822.json"],["20260823","12","3","drug_split_20260823.json"]])
+    table(doc,["Seed","Train drugs","Test drugs","Manifest"],[["20260821","12","3","drug_split_20260821.json"],["20260822","12","3","drug_split_20260822.json"],["20260823","12","3","drug_split_20260823.json"],["20260824","12","3","full_universe_drug_split_20260824.json"],["20260825","12","3","full_universe_drug_split_20260825.json"]])
     heading(doc,"S3. Drug-heldout results",1)
     rows=[]
-    for seed in ["20260821","20260822","20260823"]:
+    for seed in ["20260821","20260822","20260823","20260824","20260825"]:
         d=json.loads((ROOT/f"data/processed/full_universe_{seed}.json").read_text())
         for m in ["expression","copy_number","mutation","fusion"]:
             x=d["metrics"][m]; rows.append([seed,m,f"{x['mae']:.4f}",f"{x['rmse']:.4f}",x["feature_count"],x.get("complete_case_rows","not computed"),x.get("missing_case_rows","not computed")])

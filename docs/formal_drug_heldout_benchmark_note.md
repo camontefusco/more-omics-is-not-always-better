@@ -1,15 +1,17 @@
 # Formal drug-held-out benchmark note
 
-The combined 15-drug outer-joined table was evaluated with drug-grouped held-out splits at seeds 20260821, 20260822, and 20260823. Each fold selected 2,000 features per modality from the complete raw feature universe using training-drug rows only and fit expression, copy-number, mutation, and fusion Ridge models.
+The combined 15-drug outer-joined table was evaluated with drug-grouped held-out splits at seeds 20260821 through 20260825. Each fold selected 2,000 features per modality from the complete raw feature universe using training-drug rows only and fit expression, copy-number, mutation, and fusion Ridge models.
 
 | Seed | Expression RMSE | Fusion RMSE | Fusion delta |
 |---:|---:|---:|---:|
 | 20260821 | 0.1696 | 0.1672 | −0.0024 |
 | 20260822 | 0.2538 | 0.2527 | −0.0011 |
 | 20260823 | 0.2329 | 0.2326 | −0.0003 |
-| **Mean** | **0.2188** | **0.2175** | **−0.0013** |
+| 20260824 | 0.2299 | 0.2294 | −0.0005 |
+| 20260825 | 0.2776 | 0.2788 | +0.0012 |
+| **Mean** | **0.2328** | **0.2322** | **−0.0006** |
 
-Fusion improved seed-level RMSE slightly on all three splits. The reported mean is the arithmetic mean of split-level RMSE values, not a pooled observation-level RMSE. This supports a small incremental effect rather than a universal fusion advantage.
+Fusion improved seed-level RMSE in three of five splits and was slightly worse in two. The reported mean is the arithmetic mean of split-level RMSE values, not a pooled observation-level RMSE. The sample SD of the seed-level delta is approximately 0.0013; this supports only a small, split-sensitive incremental effect rather than a universal fusion advantage.
 
 The benchmark implementation is `scripts/run_full_universe_benchmark.py`; split manifests are written under `data/processed/full_universe_manifests/`.
 

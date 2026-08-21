@@ -7,7 +7,9 @@ The stronger benchmark selects the top 2,000 variance-ranked features per modali
 | 20260821 | 0.1696 | 0.1672 | −0.0024 |
 | 20260822 | 0.2538 | 0.2527 | −0.0011 |
 | 20260823 | 0.2329 | 0.2326 | −0.0003 |
-| **Mean** | **0.2188** | **0.2175** | **−0.0013** |
+| 20260824 | 0.2299 | 0.2294 | −0.0005 |
+| 20260825 | 0.2776 | 0.2788 | +0.0012 |
+| **Mean** | **0.2328** | **0.2322** | **−0.0006** |
 
 Fusion improved RMSE in all three full-universe splits, but the mean improvement was small. The full-universe absolute errors differ from the earlier candidate-table benchmark, confirming that candidate-table construction materially affects the reported error scale. The full-universe result should replace the earlier headline benchmark if the manuscript claims selection from the full raw feature universe.
 

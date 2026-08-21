@@ -47,9 +47,25 @@
       "fusion_rmse": 0.2326335458084729,
       "fusion_delta_rmse": -0.0003046808338475482,
       "outcome": "helps"
+    },
+    {
+      "validation": "drug_heldout",
+      "held_out": "20260824",
+      "expression_rmse": 0.22990762160807818,
+      "fusion_rmse": 0.22936475683998878,
+      "fusion_delta_rmse": -0.0005428647680894017,
+      "outcome": "helps"
+    },
+    {
+      "validation": "drug_heldout",
+      "held_out": "20260825",
+      "expression_rmse": 0.27763828378237265,
+      "fusion_rmse": 0.2788429587963498,
+      "fusion_delta_rmse": 0.0012046750139771412,
+      "outcome": "harms"
     }
   ],
-  "help_count": 3,
-  "harm_count": 3,
+  "help_count": 4,
+  "harm_count": 4,
   "interpretation": "Fusion effects are conditional when the sign of fusion_delta_rmse varies across held-out folds."
 }

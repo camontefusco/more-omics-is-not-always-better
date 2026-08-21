@@ -23,6 +23,22 @@
       "mean_response_rmse": 0.2371612786374797,
       "fusion_delta_rmse": -0.0003046808338475482,
       "fusion_vs_mean_delta_rmse": -0.004527732829006814
+    },
+    {
+      "seed": 20260824,
+      "expression_rmse": 0.22990762160807818,
+      "fusion_rmse": 0.22936475683998878,
+      "mean_response_rmse": 0.23521187956592993,
+      "fusion_delta_rmse": -0.0005428647680894017,
+      "fusion_vs_mean_delta_rmse": -0.005847122725941151
+    },
+    {
+      "seed": 20260825,
+      "expression_rmse": 0.27763828378237265,
+      "fusion_rmse": 0.2788429587963498,
+      "mean_response_rmse": 0.2645391689109223,
+      "fusion_delta_rmse": 0.0012046750139771412,
+      "fusion_vs_mean_delta_rmse": 0.01430378988542752
     }
   ],
   "per_drug": {
@@ -114,11 +130,20 @@
           "mean_response_rmse": 0.31050165009573333,
           "fusion_delta_rmse": -0.0005065411650398421,
           "fusion_vs_mean_delta_rmse": -0.018088899997403873
+        },
+        {
+          "seed": 20260825,
+          "n": 903,
+          "expression_rmse": 0.22918839463450605,
+          "fusion_rmse": 0.2282819368761864,
+          "mean_response_rmse": 0.25533579075963414,
+          "fusion_delta_rmse": -0.0009064577583196565,
+          "fusion_vs_mean_delta_rmse": -0.027053853883447748
         }
       ],
-      "n_seeds": 1,
-      "mean_fusion_delta_rmse": -0.0005065411650398421,
-      "fusion_help_count": 1,
+      "n_seeds": 2,
+      "mean_fusion_delta_rmse": -0.0007064994616797493,
+      "fusion_help_count": 2,
       "fusion_harm_count": 0
     },
     "NAVITOCLAX (GDSC2:1011)": {
@@ -131,11 +156,20 @@
           "mean_response_rmse": 0.29069290559773087,
           "fusion_delta_rmse": -0.0008175065270606963,
           "fusion_vs_mean_delta_rmse": -0.014370162437777168
+        },
+        {
+          "seed": 20260824,
+          "n": 937,
+          "expression_rmse": 0.24756140452503886,
+          "fusion_rmse": 0.24564754137509798,
+          "mean_response_rmse": 0.2657604778670588,
+          "fusion_delta_rmse": -0.001913863149940881,
+          "fusion_vs_mean_delta_rmse": -0.02011293649196083
         }
       ],
-      "n_seeds": 1,
-      "mean_fusion_delta_rmse": -0.0008175065270606963,
-      "fusion_help_count": 1,
+      "n_seeds": 2,
+      "mean_fusion_delta_rmse": -0.0013656848385007886,
+      "fusion_help_count": 2,
       "fusion_harm_count": 0
     },
     "STAUROSPORINE (GDSC2:1034)": {
@@ -148,18 +182,70 @@
           "mean_response_rmse": 0.2899096855128208,
           "fusion_delta_rmse": 0.0016134460386102445,
           "fusion_vs_mean_delta_rmse": 0.023055020208396226
+        },
+        {
+          "seed": 20260825,
+          "n": 938,
+          "expression_rmse": 0.3168978950585631,
+          "fusion_rmse": 0.3191237757971176,
+          "mean_response_rmse": 0.2855829390570914,
+          "fusion_delta_rmse": 0.0022258807385545087,
+          "fusion_vs_mean_delta_rmse": 0.03354083674002617
+        }
+      ],
+      "n_seeds": 2,
+      "mean_fusion_delta_rmse": 0.0019196633885823766,
+      "fusion_help_count": 0,
+      "fusion_harm_count": 2
+    },
+    "GSK1059615 (GDSC1:374)": {
+      "seeds": [
+        {
+          "seed": 20260824,
+          "n": 889,
+          "expression_rmse": 0.25169256295721587,
+          "fusion_rmse": 0.2538205311224099,
+          "mean_response_rmse": 0.23028530656105609,
+          "fusion_delta_rmse": 0.0021279681651940052,
+          "fusion_vs_mean_delta_rmse": 0.02353522456135379
+        },
+        {
+          "seed": 20260825,
+          "n": 889,
+          "expression_rmse": 0.27820429816185194,
+          "fusion_rmse": 0.2799709702221003,
+          "mean_response_rmse": 0.2502522726546414,
+          "fusion_delta_rmse": 0.0017666720602483865,
+          "fusion_vs_mean_delta_rmse": 0.02971869756745893
+        }
+      ],
+      "n_seeds": 2,
+      "mean_fusion_delta_rmse": 0.0019473201127211959,
+      "fusion_help_count": 0,
+      "fusion_harm_count": 2
+    },
+    "TENOVIN-6 (GDSC1:342)": {
+      "seeds": [
+        {
+          "seed": 20260824,
+          "n": 888,
+          "expression_rmse": 0.1829202342522835,
+          "fusion_rmse": 0.180601492267647,
+          "mean_response_rmse": 0.20364684074262793,
+          "fusion_delta_rmse": -0.0023187419846364965,
+          "fusion_vs_mean_delta_rmse": -0.023045348474980937
         }
       ],
       "n_seeds": 1,
-      "mean_fusion_delta_rmse": 0.0016134460386102445,
-      "fusion_help_count": 0,
-      "fusion_harm_count": 1
+      "mean_fusion_delta_rmse": -0.0023187419846364965,
+      "fusion_help_count": 1,
+      "fusion_harm_count": 0
     }
   },
   "summary": {
-    "drug_seed_cells": 9,
-    "fusion_help_cells": 8,
-    "fusion_harm_cells": 1,
-    "fusion_help_fraction": 0.8888888888888888
+    "drug_seed_cells": 15,
+    "fusion_help_cells": 11,
+    "fusion_harm_cells": 4,
+    "fusion_help_fraction": 0.7333333333333333
   }
 }

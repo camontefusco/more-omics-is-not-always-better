@@ -3,7 +3,7 @@
 ## Frozen and versioned
 
 - `data/processed/full_universe_lood_results.json`
-- `data/processed/full_universe_20260821.json`, `20260822.json`, and `20260823.json`
+- `data/processed/full_universe_20260821.json` through `full_universe_20260825.json`
 - `data/processed/full_universe_secondary_summary.json`
 - `data/processed/full_universe_manifests/` and `data/processed/full_universe_lood_manifests/`
 - `data/processed/cross_dataset_modality_seeds.json`
