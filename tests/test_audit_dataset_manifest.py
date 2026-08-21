@@ -9,11 +9,10 @@ assert SPEC and SPEC.loader
 SPEC.loader.exec_module(MODULE)
 
 
-def test_current_manifest_is_detected_as_unresolved_draft():
+def test_current_manifest_passes_initial_lock():
     manifest = MODULE.load_manifest(Path(__file__).parents[1] / "configs" / "dataset_manifest.yaml")
     errors = MODULE.audit(manifest)
-    assert any("unresolved release" in error for error in errors)
-    assert any("unresolved response_metric" in error for error in errors)
+    assert errors == []
 
 
 def test_complete_minimal_manifest_passes():

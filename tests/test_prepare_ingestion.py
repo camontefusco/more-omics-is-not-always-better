@@ -11,9 +11,9 @@ assert SPEC and SPEC.loader
 SPEC.loader.exec_module(MODULE)
 
 
-def test_draft_manifest_is_blocked(tmp_path, monkeypatch, capsys):
+def test_locked_manifest_creates_ingestion_run(tmp_path, monkeypatch, capsys):
     manifest_path = Path(__file__).parents[1] / "configs" / "dataset_manifest.yaml"
     monkeypatch.setattr("sys.argv", ["prepare_ingestion.py", str(manifest_path), "--run-id", "test", "--output-root", str(tmp_path)])
-    assert MODULE.main() == 1
-    assert not (tmp_path / "test").exists()
-    assert '"ok": false' in capsys.readouterr().out
+    assert MODULE.main() == 0
+    assert (tmp_path / "test" / "provenance.json").exists()
+    assert '"ok": true' in capsys.readouterr().out
