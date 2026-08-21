@@ -6,15 +6,15 @@ When More Omics Is Not Always Better: Drug- and Dataset-Conditional Value of Mul
 
 ## Authors
 
-**[COMPLETE AUTHOR LIST IN SUBMISSION-SYSTEM ORDER]**
+Carlos Victor Montefusco-Pereira¹
 
 ## Affiliations
 
-**[ADD FULL INSTITUTIONAL NAMES, POSTAL ADDRESSES, COUNTRY, AND SUPERSCRIPT MAPPING]**
+¹Independent Researcher in Data Science and Artificial Intelligence in Industrial Pharmaceutics, Berlin, Germany
 
 ## Corresponding author
 
-**[ADD NAME, FULL POSTAL ADDRESS, AND EMAIL]**
+Carlos Victor Montefusco-Pereira, Berlin, Germany — **[ADD EMAIL]**
 
 ## Declarations
 
