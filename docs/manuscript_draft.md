@@ -42,6 +42,26 @@ The declared evaluation universe contains 15 compounds: five from GDSC1, five fr
 
 We report mean absolute error (MAE) and root mean squared error (RMSE). Fusion deltas are defined as fusion RMSE minus expression RMSE; negative values favor fusion and positive values favor expression. Missingness strata are descriptive availability strata, not a replacement for imputation-aware model evaluation. All formal result tables and split manifests are versioned with the workflow.
 
+## 2.3. Dataset harmonization and response definition
+
+The workflow treats the response table as the analysis backbone and joins molecular features through stable cell-line identifiers. Drug identifiers were normalized within source datasets before defining the declared compound universe. Nominally similar compounds across sources were not assumed to be interchangeable; source-specific response measurements remained associated with their originating dataset.
+
+## 2.4. Feature construction and leakage control
+
+Expression, copy-number, and damaging-mutation matrices were processed as separate modality blocks. Feature selection was repeated inside every training fold using only training-row variance and the declared feature budget. Selected blocks were imputed and standardized using training-derived quantities before model fitting; test rows were transformed with those fitted quantities. This ordering prevents held-out response information from influencing feature selection or preprocessing.
+
+## 2.5. Model specification and baselines
+
+Each modality was evaluated as a standalone baseline, and fusion was defined as concatenation of the selected expression, copy-number, and mutation blocks. All models used the same Ridge estimator and alpha value, isolating the effect of adding blocks rather than changing the learner. Ridge is treated as a reproducible reference, not as an optimal architecture.
+
+## 2.6. Split manifests and reproducibility
+
+Five drug-held-out manifests were persisted before model evaluation. Grouped splitting prevents rows from the same drug from appearing in both training and test partitions. Leave-one-dataset-out manifests hold out one complete response source at a time. Result JSON files retain seeds, row counts, selected-feature counts, model labels, and error metrics.
+
+## 2.7. Analysis sequence and implementation controls
+
+The analysis sequence was fixed before interpreting performance: define the 15-compound universe; normalize identifiers; construct outer-joined tables for availability auditing; create grouped manifests; select features using training rows only; fit training-derived imputation and scaling; fit the same Ridge specification; and calculate held-out MAE and RMSE. No test response values were used for feature ranking, imputation, scaling, or model selection. Earlier candidate-table and cell-line-held-out analyses are exploratory history and are not headline results.
+
 # 3. Results
 
 ### 3.1. Drug-heldout validation
@@ -59,6 +79,8 @@ The magnitude of the transfer differences should be read together with the sourc
 ### 3.3. Missingness and redundancy
 
 Row-level modality summaries showed weak-to-moderate correlations, while outer-joined tables showed dataset-dependent modality availability. These analyses describe data structure and model behavior; they do not establish that missingness or redundancy caused the observed performance differences.
+
+The outer-join audit found mean availability of 0.827 for expression, 0.594 for copy number, and 0.995 for damaging mutation, with 0.591 of rows complete across all three blocks. These values describe the prepared 15-compound tables and selected cell-line intersection, not portal-wide or clinical assay availability.
 
 # 4. Discussion
 
