@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+"""Evaluate simple feature masking and residual-based prediction intervals."""
+
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import Ridge
+from sklearn.model_selection import GroupShuffleSplit
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+
+
+def evaluate(path: Path, target: str, group: str, features: list[str], mask_fraction: float = 0.25, seed: int = 20260821) -> dict[str, float | int]:
+    frame = pd.read_csv(path).dropna(subset=[target, group]).reset_index(drop=True)
+    missing = set(features) - set(frame.columns)
+    if missing:
+        raise ValueError(f"missing feature columns: {sorted(missing)}")
+    train_idx, test_idx = next(GroupShuffleSplit(n_splits=1, test_size=0.2, random_state=seed).split(frame, groups=frame[group]))
+    rng = np.random.default_rng(seed)
+    train = frame.loc[train_idx, features].astype(float).copy()
+    test = frame.loc[test_idx, features].astype(float).copy()
+    mask = rng.random(test.shape) < mask_fraction
+    test.values[mask] = np.nan
+    model = Pipeline([("impute", SimpleImputer(strategy="median")), ("scale", StandardScaler()), ("model", Ridge(alpha=1.0))])
+    model.fit(train, frame.loc[train_idx, target])
+    prediction = model.predict(test)
+    residuals = np.abs(frame.loc[train_idx, target].to_numpy() - model.predict(train))
+    radius = float(np.quantile(residuals, 0.9))
+    observed = frame.loc[test_idx, target].to_numpy()
+    coverage = float(np.mean((observed >= prediction - radius) & (observed <= prediction + radius)))
+    return {"rows_test": int(len(test_idx)), "mask_fraction": mask_fraction, "interval_radius_90": radius, "interval_coverage": coverage, "seed": seed}
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("table", type=Path)
+    parser.add_argument("--features", nargs="+", required=True)
+    parser.add_argument("--target", default="response_value")
+    parser.add_argument("--group", default="cell_line_id_raw")
+    parser.add_argument("--mask-fraction", type=float, default=0.25)
+    args = parser.parse_args()
+    print(json.dumps(evaluate(args.table, args.target, args.group, args.features, args.mask_fraction), indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
