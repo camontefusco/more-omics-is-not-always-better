@@ -50,11 +50,11 @@ def main():
     sec = doc.sections[0]; sec.top_margin = Inches(0.8); sec.bottom_margin = Inches(0.8); sec.left_margin = Inches(0.85); sec.right_margin = Inches(0.85)
     styles = doc.styles
     styles["Normal"].font.name = "Arial"; styles["Normal"].font.size = Pt(10)
-    for name, size, color in [("Title", 20, "17365D"), ("Heading 1", 14, "17365D"), ("Heading 2", 11, "2F5597")]:
-        styles[name].font.name = "Arial"; styles[name].font.size = Pt(size); styles[name].font.color.rgb = RGBColor.from_string(color)
+    for name, size in [("Title", 20), ("Heading 1", 14), ("Heading 2", 11)]:
+        styles[name].font.name = "Arial"; styles[name].font.size = Pt(size); styles[name].font.color.rgb = RGBColor(0,0,0)
 
     title = doc.add_paragraph(); title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = title.add_run("When More Omics Is Not Always Better: Drug- and Dataset-Conditional Value of Multimodal Cancer Pharmacogenomics"); run.bold = True; run.font.size = Pt(20); run.font.color.rgb = RGBColor(23,54,93)
+    run = title.add_run("When More Omics Is Not Always Better: Drug- and Dataset-Conditional Value of Multimodal Cancer Pharmacogenomics"); run.bold = True; run.font.size = Pt(20); run.font.color.rgb = RGBColor(0,0,0)
     p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; p.add_run("Carlos Victor Montefusco-Pereira\n").bold = True; p.add_run("Independent Researcher in Data Science and Artificial Intelligence in Industrial Pharmaceutics\nBerlin, Germany\nCorresponding author: [ADD EMAIL]")
     doc.add_paragraph()
     p = doc.add_paragraph(); p.add_run("Article type: ").bold = True; p.add_run("Research article")
@@ -70,12 +70,23 @@ def main():
     add_heading(doc, "1.1. Brief literature context", 2)
     add_body(doc, "Large cell-line resources established the empirical basis for this task. The Cancer Cell Line Encyclopedia and the Genomics of Drug Sensitivity in Cancer linked molecular profiles to pharmacologic response across large panels, while later DepMap releases expanded standardized molecular and dependency data [1–3]. These resources also show why response prediction is not purely a genomic problem: lineage and multiple molecular data types contribute to drug sensitivity associations [2].")
     add_body(doc, "Prior computational work has used classical machine learning, deep learning, and multimodal integration for drug-response prediction [4–6]. MOLI is a prominent late-integration example that combines expression, copy-number, and mutation features and reported gains in external validations [5]. However, published comparisons often differ in response metric, drug universe, feature processing, split design, and external-study transfer. The present study addresses a narrower methodological question: whether adding modalities improves a fixed, leakage-controlled baseline under drug-heldout and cross-study evaluation. It is intended as a validation benchmark, not as a competing deep-learning model.")
+    add_heading(doc, "1.2. Research questions and hypotheses", 2)
+    add_body(doc, "We asked three questions: (Q1) Does feature-level fusion improve prediction when drugs, rather than cell lines alone, are held out? (Q2) Does any improvement transfer when an entire response dataset is held out? (Q3) Are fusion effects accompanied by structured missingness or modality redundancy? We preregistered the following directional expectations for interpretation: H1, fusion may improve drug-heldout prediction relative to expression alone; H2, fusion gains may not transfer across datasets; and H3, missingness and redundancy may vary across source datasets and coincide with unstable fusion effects. These are benchmark hypotheses, not claims of biological causality.")
 
     add_heading(doc, "2. Methods", 1)
     add_body(doc, "We harmonized DepMap response and molecular data from GDSC1, GDSC2, and CTD² using locked release identifiers. Expression, copy-number, and damaging-mutation features were evaluated separately and in concatenated fusion models. Within each held-out fold, the top 2,000 features per modality were selected using training rows only. Models used median imputation, standardization, and Ridge regression. Drug-held-out splits grouped rows by drug; leave-one-dataset-out folds held out each source dataset in turn. Outer joins were retained for structured missingness analyses.")
+    add_heading(doc, "2.1. Evaluation scope", 2)
+    add_body(doc, "The declared evaluation universe contains 15 compounds: five from GDSC1, five from GDSC2, and five from CTD². This is a prespecified cross-dataset subset, not the complete drug universe available in any one portal release. Because the datasets do not contain a broad common set of identical compounds, leave-one-dataset-out results measure cross-study transfer rather than same-drug replication.")
+    add_heading(doc, "2.2. Metrics and interpretation", 2)
+    add_body(doc, "We report mean absolute error (MAE) and root mean squared error (RMSE). Fusion deltas are defined as fusion RMSE minus expression RMSE; negative values favor fusion and positive values favor expression. Missingness strata are descriptive availability strata, not a replacement for imputation-aware model evaluation. All formal result tables and split manifests are versioned with the workflow.")
 
     add_heading(doc, "3. Results", 1)
-    add_body(doc, "Drug-held-out performance was split-sensitive: fusion improved two of three seeds and worsened slightly on one. In leave-one-dataset-out validation, expression was consistently stronger than fusion, with the largest fusion degradation on CTD2. The signed fusion-minus-expression RMSE deltas and all frozen metrics are available in the machine-readable result tables. Row-level modality summaries showed weak-to-moderate correlations, while outer-joined tables showed dataset-dependent modality availability.")
+    add_heading(doc, "3.1. Drug-heldout validation", 2)
+    add_body(doc, "Drug-held-out performance was split-sensitive: fusion improved two of three seeds and worsened slightly on one. The mean RMSE difference was modest and should not be interpreted as a universal gain. Per-seed and per-model values are reported in Table 2 and Supplementary Table S3.")
+    add_heading(doc, "3.2. Cross-study transfer", 2)
+    add_body(doc, "In leave-one-dataset-out validation, expression was consistently stronger than fusion, with the largest fusion degradation on CTD2. These folds test transfer across source datasets, not replication of the same drug. The signed fusion-minus-expression RMSE deltas are shown in Figure 2 and Supplementary Table S4.")
+    add_heading(doc, "3.3. Missingness and redundancy", 2)
+    add_body(doc, "Row-level modality summaries showed weak-to-moderate correlations, while outer-joined tables showed dataset-dependent modality availability. These analyses describe data structure and model behavior; they do not establish that missingness or redundancy caused the observed performance differences.")
     lood = json.loads((ROOT/"data/processed/leave_one_dataset_out_results.json").read_text())
     rows=[]
     for d,f in lood["folds"].items(): rows.append([d, f["metrics"]["expression"]["rmse"], f["metrics"]["copy_number"]["rmse"], f["metrics"]["mutation"]["rmse"], f["metrics"]["fusion"]["rmse"]])
@@ -91,6 +102,7 @@ def main():
 
     add_heading(doc, "4. Discussion", 1)
     add_body(doc, "The results do not support a universal multimodal advantage. Fusion can help within a drug-held-out universe yet fail under study transfer, consistent with domain-specific response scales, assay coverage, and feature distributions. The study is limited by the small prespecified 15-drug universe, limited same-drug overlap across datasets, and the use of compact Ridge baselines rather than a broad model class. The conclusions are therefore about evaluation design and conditional predictive value, not a claim that any modality is biologically uninformative.")
+    add_body(doc, "H1 was partially supported: fusion improved two of three drug-heldout seeds, but the effect was small and split-sensitive. H2 was supported in this evaluation: fusion degraded performance in all three leave-one-dataset-out folds. H3 was supported descriptively because modality availability and row-level correlations differed across source tables, but the study does not identify a causal explanation. These findings argue for reporting fusion failures alongside gains and for treating cross-study validation as a separate target from within-dataset drug generalization.")
     add_heading(doc, "5. Data and code availability", 1)
     add_body(doc, "Code, manifests, derived result summaries, figures, and reproducibility notes are provided in the project repository. Raw DepMap files must be obtained from the provider under the applicable terms; see the public-data access note. The repository does not redistribute raw molecular matrices.")
     add_heading(doc, "6. References", 1)

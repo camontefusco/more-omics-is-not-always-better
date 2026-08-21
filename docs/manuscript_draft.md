@@ -18,17 +18,41 @@ Large cell-line resources established the empirical basis for this task. The Can
 
 Prior computational work has used classical machine learning, deep learning, and multimodal integration for drug-response prediction [4–6]. MOLI is a prominent late-integration example that combines expression, copy-number, and mutation features and reported gains in external validations [5]. However, published comparisons often differ in response metric, drug universe, feature processing, split design, and external-study transfer. The present study addresses a narrower methodological question: whether adding modalities improves a fixed, leakage-controlled baseline under drug-heldout and cross-study evaluation. It is intended as a validation benchmark, not as a competing deep-learning model.
 
+## 1.2. Research questions and hypotheses
+
+We asked three questions: (Q1) Does feature-level fusion improve prediction when drugs, rather than cell lines alone, are held out? (Q2) Does any improvement transfer when an entire response dataset is held out? (Q3) Are fusion effects accompanied by structured missingness or modality redundancy? We preregistered the following directional expectations for interpretation: H1, fusion may improve drug-heldout prediction relative to expression alone; H2, fusion gains may not transfer across datasets; and H3, missingness and redundancy may vary across source datasets and coincide with unstable fusion effects. These are benchmark hypotheses, not claims of biological causality.
+
 # 2. Methods
 
 We harmonized DepMap response and molecular data from GDSC1, GDSC2, and CTD² using locked release identifiers. Expression, copy-number, and damaging-mutation features were evaluated separately and in concatenated fusion models. Within each held-out fold, the top 2,000 features per modality were selected using training rows only. Models used median imputation, standardization, and Ridge regression. Drug-held-out splits grouped rows by drug; leave-one-dataset-out folds held out each source dataset in turn. Outer joins were retained for structured missingness analyses.
 
+## 2.1. Evaluation scope
+
+The declared evaluation universe contains 15 compounds: five from GDSC1, five from GDSC2, and five from CTD². This is a prespecified cross-dataset subset, not the complete drug universe available in any one portal release. Because the datasets do not contain a broad common set of identical compounds, leave-one-dataset-out results measure cross-study transfer rather than same-drug replication.
+
+## 2.2. Metrics and interpretation
+
+We report mean absolute error (MAE) and root mean squared error (RMSE). Fusion deltas are defined as fusion RMSE minus expression RMSE; negative values favor fusion and positive values favor expression. Missingness strata are descriptive availability strata, not a replacement for imputation-aware model evaluation. All formal result tables and split manifests are versioned with the workflow.
+
 # 3. Results
 
-Drug-held-out performance was split-sensitive: fusion improved two of three seeds and worsened slightly on one. In leave-one-dataset-out validation, expression was consistently stronger than fusion, with the largest fusion degradation on CTD2. The signed fusion-minus-expression RMSE deltas and all frozen metrics are available in the machine-readable result tables. Row-level modality summaries showed weak-to-moderate correlations, while outer-joined tables showed dataset-dependent modality availability.
+### 3.1. Drug-heldout validation
+
+Drug-held-out performance was split-sensitive: fusion improved two of three seeds and worsened slightly on one. The mean RMSE difference was modest and should not be interpreted as a universal gain. Per-seed and per-model values are reported in Table 2 and Supplementary Table S3.
+
+### 3.2. Cross-study transfer
+
+In leave-one-dataset-out validation, expression was consistently stronger than fusion, with the largest fusion degradation on CTD2. These folds test transfer across source datasets, not replication of the same drug. The signed fusion-minus-expression RMSE deltas are shown in Figure 2 and Supplementary Table S4.
+
+### 3.3. Missingness and redundancy
+
+Row-level modality summaries showed weak-to-moderate correlations, while outer-joined tables showed dataset-dependent modality availability. These analyses describe data structure and model behavior; they do not establish that missingness or redundancy caused the observed performance differences.
 
 # 4. Discussion
 
 The results do not support a universal multimodal advantage. Fusion can help within a drug-held-out universe yet fail under study transfer, consistent with domain-specific response scales, assay coverage, and feature distributions. The study is limited by the small prespecified 15-drug universe, limited same-drug overlap across datasets, and the use of compact Ridge baselines rather than a broad model class. The conclusions are therefore about evaluation design and conditional predictive value, not a claim that any modality is biologically uninformative.
+
+H1 was partially supported: fusion improved two of three drug-heldout seeds, but the effect was small and split-sensitive. H2 was supported in this evaluation: fusion degraded performance in all three leave-one-dataset-out folds. H3 was supported descriptively because modality availability and row-level correlations differed across source tables, but the study does not identify a causal explanation. These findings argue for reporting fusion failures alongside gains and for treating cross-study validation as a separate target from within-dataset drug generalization.
 
 # 5. Data and code availability
 
