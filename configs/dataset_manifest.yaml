@@ -1,0 +1,57 @@
+project: more-omics-is-not-always-better
+manifest_status: draft
+as_of: 2026-08-21
+
+response_resources:
+  - id: gdsc1
+    name: Genomics of Drug Sensitivity in Cancer 1
+    role: primary_or_external
+    response_metric: to_lock
+    source_url: https://www.cancerrxgene.org/downloads/bulk_download
+    release: to_record
+  - id: gdsc2
+    name: Genomics of Drug Sensitivity in Cancer 2
+    role: primary_or_external
+    response_metric: to_lock
+    source_url: https://www.cancerrxgene.org/downloads/bulk_download
+    release: to_record
+  - id: ccle_depmap
+    name: Cancer Cell Line Encyclopedia / DepMap
+    role: primary_or_external
+    response_metric: to_lock
+    source_url: https://depmap.org/portal/download/all/
+    release: to_record
+  - id: ctrpv2
+    name: Cancer Therapeutics Response Portal version 2
+    role: external_validation_candidate
+    response_metric: to_lock
+    source_url: https://depmap.org/portal/download/all/
+    release: to_record
+  - id: gcsi
+    name: Genentech Cell Line Screening Initiative
+    role: external_validation_candidate
+    response_metric: to_lock
+    source_url: to_record
+    release: to_record
+
+modalities:
+  transcriptomics:
+    required: true
+    preprocessing: lock_after_release_audit
+  mutation:
+    required: true
+    representation: binary_gene_level_initially
+  copy_number:
+    required: true
+    representation: gene_level_continuous_or_discretized_after_audit
+
+harmonization:
+  cell_lines: Cellosaurus_accession_preferred
+  compounds: PubChem_CID_preferred
+  genes: stable_gene_identifier_with_version_recorded
+  response_metric: no_mixing_without_pre_specified_sensitivity_analysis
+
+validation:
+  splits: [pair_held_out, cell_line_held_out, drug_held_out, cross_study]
+  seeds: to_lock
+  minimum_stratum_size: to_lock
