@@ -2,7 +2,7 @@
 
 | Work package | Current state | Evidence required | Completion criterion |
 |---|---|---|---|
-| MoA mapping | 5/316 GDSC1 compounds mapped | Audited source, confidence, and caveat for each prespecified compound | Mapping audit passes for the declared analysis universe |
+| MoA mapping | 15/15 compounds in the current cross-dataset evaluation universe mapped; full GDSC1 universe remains 5/316 | Audited source, confidence, and caveat for each prespecified compound | Mapping audit passes for the declared analysis universe |
 | Validation | Exploratory grouped splits across 3 datasets | Drug-held-out, cross-study, and repeated-seed performance tables | Locked result manifest contains all required split types and seeds |
 | Failure analysis | Random masking evaluated; conflict/redundancy not complete | Missing-modality patterns, modality correlations, disagreement cases | Main claims include stratified failure analyses |
 | Release package | Internal reproducibility materials present | Clean environment rerun, formal result tables, rendered figures, public-data note | Checklist in `docs/reproducibility_release_checklist.md` passes |

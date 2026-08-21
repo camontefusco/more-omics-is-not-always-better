@@ -20,4 +20,4 @@ The reproducibility release checklist is in `docs/reproducibility_release_checkl
 
 ## Current evidence status
 
-The repository is analysis-ready and reproducible for the locked exploratory runs, but not publication-final. The final-gates audit passes the manifest and automated tests; the MoA audit currently maps 5 of 316 GDSC1 response compounds, so mechanism-stratified conclusions remain limited to the mapped exploratory subset.
+The repository is analysis-ready and reproducible for the locked exploratory runs, but not publication-final. The declared 15-drug cross-dataset evaluation universe is now fully mapped; the broader GDSC1 response universe remains only 5 of 316 mapped, so mechanism-stratified conclusions must remain limited to the prespecified evaluation subset.
