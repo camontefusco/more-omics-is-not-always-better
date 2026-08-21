@@ -1,0 +1,12 @@
+.DS_Store
+.env
+.venv/
+__pycache__/
+data/raw/
+data/interim/
+outputs/
+*.parquet
+*.h5
+*.hdf5
+*.rds
+*.sqlite
