@@ -1,0 +1,35 @@
+project: more-omics-is-not-always-better
+analysis_date: 2026-08-21
+nominal_seed_set: [20260821, 20260822, 20260823]
+feature_selection: train_only_variance_top_2000
+group_split: cell_line_held_out
+completed_results:
+  - id: gdsc1_top5_modality_seeds
+    dataset: GDSC1
+    drugs: 5
+    seeds: [20260821, 20260822, 20260823]
+    comparison: expression_copy_number_mutation_fusion_ridge
+    output: data/processed/gdsc1_top5_modality_seeds.json
+  - id: gdsc2_modality_seeds
+    dataset: GDSC2
+    drugs: 5
+    seeds: [20260821, 20260822, 20260823]
+    comparison: expression_copy_number_mutation_fusion_ridge
+    output: data/processed/cross_dataset_modality_seeds.json
+  - id: ctd2_modality_seeds
+    dataset: CTD2
+    drugs: 5
+    seeds: [20260821, 20260822, 20260823]
+    comparison: expression_copy_number_mutation_fusion_ridge
+    output: data/processed/cross_dataset_modality_seeds.json
+  - id: cross_dataset_missingness
+    datasets: [GDSC1, GDSC2, CTD2]
+    drugs: 15
+    seeds: [20260821]
+    masking: random_expression_features_25_percent
+    calibration: masked_calibration_residual_quantile_90
+    output: data/processed/cross_dataset_missingness_summary.json
+known_limits:
+  - MoA mapping is complete for the 15-drug evaluation universe but not the full GDSC1 response universe.
+  - Derived CSV and JSON outputs are local and excluded from the Git repository.
+  - Final drug-held-out, conflict, redundancy, clean-environment, and figure-render checks remain open.
