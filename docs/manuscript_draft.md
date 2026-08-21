@@ -72,11 +72,15 @@ The small size of the observed within-universe effect is itself informative for 
 
 The analysis also suggests a reproducibility principle for future information-fusion studies: preserve the split manifests and the feature-selection scope as first-class artifacts. Without them, a later rerun can silently change the estimand while retaining the same model name and headline metric. Reporting the sign of each fold-level delta, rather than only an aggregate score, makes such changes easier to detect. This is particularly important when the expected effect is small, as in the present benchmark.
 
-# 5. Data and code availability
+# 5. Conclusion
+
+In this small, prespecified DepMap benchmark, adding copy-number and mutation blocks to expression produced a small mean improvement in drug-held-out prediction, but the direction changed across repeated splits and the improvement did not transfer to any of the three held-out source datasets. The result is therefore conditional rather than universal. The practical contribution is a reproducible comparison framework that makes the held-out entity, fold-local feature selection, structured availability, and transfer target explicit. Larger common-drug universes, external test sets, missingness-aware models, and alternative learners are needed before deciding whether the observed pattern generalizes beyond this Ridge-based construction.
+
+# 6. Data and code availability
 
 Code, manifests, derived result summaries, figures, and reproducibility notes are provided in the private project repository. Raw DepMap files must be obtained from the provider under the applicable terms; see `docs/public_data_access_note.md`.
 
-# 6. References
+# 7. References
 
 1. Barretina J, Caponigro G, Stransky N, et al. The Cancer Cell Line Encyclopedia enables predictive modelling of anticancer drug sensitivity. *Nature*. 2012;483:603–607. doi: [10.1038/nature11003](https://doi.org/10.1038/nature11003).
 2. Iorio F, Knijnenburg TA, Vis DJ, et al. A landscape of pharmacogenomic interactions in cancer. *Cell*. 2016;166:740–754. doi: [10.1016/j.cell.2016.06.017](https://doi.org/10.1016/j.cell.2016.06.017).
