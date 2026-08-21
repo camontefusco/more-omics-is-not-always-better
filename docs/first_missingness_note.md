@@ -23,3 +23,17 @@ For the same exploratory setup: fit rows 307, calibration rows 77, test rows 97;
 | 50% | 0.1921 | 94.8% |
 
 Coverage is stable near the nominal 90% level in this sensitivity check. The result is still exploratory and should not be generalized beyond this drug and split until the planned per-drug and cross-dataset analyses are complete.
+
+### Five-drug GDSC1 extension
+
+Using the same grouped fit/calibration/test design and 25% expression-feature masking:
+
+| Drug | Test rows | Interval radius | Coverage |
+|---|---:|---:|---:|
+| AICA ribonucleotide | 97 | 0.1831 | 94.8% |
+| Tenovin-6 | 96 | 0.2161 | 94.8% |
+| GSK1059615 | 96 | 0.2792 | 87.5% |
+| ACY-1215 | 96 | 0.2096 | 87.5% |
+| Dacomitinib | 96 | 0.2604 | 85.4% |
+
+Coverage varies materially by drug. This is evidence that calibration must be evaluated per drug and mechanism, with larger calibration sets and repeated seeds, before any final uncertainty claim.
