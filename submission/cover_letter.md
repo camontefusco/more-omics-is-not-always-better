@@ -2,7 +2,7 @@
 
 Dear Editors,
 
-We submit “When More Omics Is Not Always Better: Drug- and Dataset-Conditional Value of Multimodal Cancer Pharmacogenomics” as a Research article. The study evaluates multimodal information fusion for cancer drug-response prediction using a locked 15-compound universe spanning GDSC1, GDSC2, and CTD².
+We submit “When More Omics Is Not Always Better: Drug- and Dataset-Conditional Value of Multimodal Cancer Pharmacogenomics” as a Research article. The study evaluates multimodal information fusion for cancer drug-response prediction using a declared 15-compound universe spanning GDSC1, GDSC2, and CTD².
 
 The manuscript fits Information Fusion because it studies feature-level fusion in an imperfect and incomplete biomedical environment, with explicit attention to missingness, redundancy, algorithmic comparison, and cross-source transfer. The central finding is that fusion is conditional: it produced a small mean improvement across five full-universe drug-heldout splits, favored fusion in three splits and expression in two, and was slightly worse in all three leave-one-dataset-out folds.
 
@@ -16,7 +16,7 @@ Validation: standard response-prediction measures include RMSE and MAE; we repor
 
 Main claim and significance: adding modalities should be judged by incremental value and transferability rather than dimensionality alone. The finding that fusion fails under cross-study transfer is directly relevant to information-fusion systems operating across heterogeneous sources.
 
-Evidence: all formal splits, feature-selection rules, derived result tables, figures, tests, and an identical reproducibility rerun are versioned in the repository. Raw provider files are not redistributed. The manuscript explicitly limits claims to the prespecified 15-compound universe and identifies the lack of broad same-drug cross-study replication as a limitation.
+Evidence: all formal splits, feature-selection rules, derived result tables, figures, tests, and an identical reproducibility rerun are versioned in the repository. Raw provider files are not redistributed. The manuscript explicitly limits claims to the declared 15-compound universe and identifies the lack of broad same-drug cross-study replication as a limitation.
 
 This manuscript has not been published previously and is not under consideration elsewhere. All authors will approve the submitted version and authorship list before submission.
 

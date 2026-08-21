@@ -2,7 +2,7 @@
 
 # Abstract
 
-Multimodal molecular profiles are often assumed to improve cancer drug-response prediction simply by adding information. We developed an evidence-bounded DepMap workflow to test that assumption across expression, copy-number, and mutation features. The prespecified evaluation universe contained 15 compounds from GDSC1, GDSC2, and CTD². Models used fold-local feature selection and Ridge regression, with drug-held-out and leave-one-dataset-out validation.
+Multimodal molecular profiles are often assumed to improve cancer drug-response prediction simply by adding information. We developed an evidence-bounded DepMap workflow to test that assumption across expression, copy-number, and mutation features. The declared evaluation universe contained 15 compounds from GDSC1, GDSC2, and CTD². Models used fold-local feature selection and Ridge regression, with drug-held-out and leave-one-dataset-out validation.
 
 In full-universe drug-held-out validation across five repeated splits, fusion had mean RMSE 0.2322 versus 0.2328 for expression alone (mean fusion-minus-expression RMSE −0.0006; seed-level SD 0.0013). Fusion improved in three of five splits and was slightly worse in two. In cross-study validation, fusion was slightly worse in all three held-out datasets: CTD² 0.3238 versus 0.3231, GDSC1 0.2339 versus 0.2322, and GDSC2 0.2387 versus 0.2347. Structured missingness and weak-to-moderate row-level modality correlations indicate that additional modalities can introduce incomplete observations and domain-sensitive signal. These findings support evaluating multimodal models by incremental value, transferability, and failure modes rather than assuming that more omics is always better.
 
@@ -32,11 +32,11 @@ We asked three questions: (Q1) Does feature-level fusion improve prediction when
 
 # 2. Methods
 
-We harmonized DepMap response and molecular data from GDSC1, GDSC2, and CTD² using locked release identifiers. Expression, copy-number, and damaging-mutation features were evaluated separately and in concatenated early-fusion models. Within each held-out fold, the top 2,000 features per modality were selected from the full raw modality universe using training rows only. Models used median imputation, standardization, and Ridge regression. Drug-held-out splits grouped rows by drug; leave-one-dataset-out folds held out each source dataset in turn. Outer joins were retained for structured missingness analyses.
+We harmonized DepMap response and molecular data from GDSC1, GDSC2, and CTD² using release identifiers recorded in the repository manifest. The response variable was the source-provided AUC value; response scales were retained by source and were not interpreted as identical assay measurements. Expression, copy-number, and damaging-mutation features were evaluated separately and in concatenated early-fusion models. Within each held-out fold, the top 2,000 features per modality were selected from the full raw modality universe using training rows only. Models used training-fold median imputation, training-fold standardization, and Ridge regression with alpha = 1.0. Drug-held-out splits grouped rows by drug; leave-one-dataset-out folds held out each source dataset in turn. Outer joins were retained for structured missingness analyses.
 
 ## 2.1. Evaluation scope
 
-The declared evaluation universe contains 15 compounds: five from GDSC1, five from GDSC2, and five from CTD². This is a prespecified cross-dataset subset, not the complete drug universe available in any one portal release. Because the datasets do not contain a broad common set of identical compounds, leave-one-dataset-out results measure cross-study transfer rather than same-drug replication.
+The declared evaluation universe contains 15 compounds: five from GDSC1, five from GDSC2, and five from CTD². This is a declared cross-dataset subset, not the complete drug universe available in any one portal release. The exact compound identifiers, source-specific row counts, and cell-line counts are provided in Supplementary Table S1. Because the datasets do not contain a broad common set of identical compounds, leave-one-dataset-out results measure cross-study transfer rather than same-drug replication.
 
 ## 2.2. Metrics and interpretation
 
@@ -80,7 +80,7 @@ The magnitude of the transfer differences should be read together with the sourc
 
 Row-level modality summaries showed weak-to-moderate correlations, while outer-joined tables showed dataset-dependent modality availability. These analyses describe data structure and model behavior; they do not establish that missingness or redundancy caused the observed performance differences.
 
-The outer-join audit found mean availability of 0.827 for expression, 0.594 for copy number, and 0.995 for damaging mutation, with 0.591 of rows complete across all three blocks. These values describe the prepared 15-compound tables and selected cell-line intersection, not portal-wide or clinical assay availability.
+The outer-join audit found mean availability of 0.827 for expression, 0.594 for copy number, and 0.995 for damaging mutation, with 0.591 of rows complete across all three blocks. These values are calculated from the prepared outer-joined tables before fold-specific feature selection. They describe the 15-compound tables and selected cell-line intersection, not complete-case availability of the selected fold-specific 2,000-feature blocks, portal-wide availability, or clinical assay availability. Models retained incomplete rows through training-fold median imputation.
 
 # 4. Discussion
 
