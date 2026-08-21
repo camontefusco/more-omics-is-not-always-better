@@ -48,9 +48,12 @@ def main() -> int:
     parser.add_argument("--modalities", required=True, help='JSON object, e.g. \'{"expression":["expr_1"],"fusion":["expr_1","mut_1"]}\'')
     parser.add_argument("--target", default="response_value")
     parser.add_argument("--group", default="cell_line_id_raw")
+    parser.add_argument("--seeds", type=int, nargs="+", help="Evaluate several grouped splits")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    result = evaluate(args.table, args.target, args.group, json.loads(args.modalities))
+    seeds = args.seeds or [20260821]
+    result = [evaluate(args.table, args.target, args.group, json.loads(args.modalities), seed) for seed in seeds]
+    result = result[0] if len(result) == 1 else result
     rendered = json.dumps(result, indent=2)
     print(rendered)
     if args.output:
