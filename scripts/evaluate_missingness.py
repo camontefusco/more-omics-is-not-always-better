@@ -59,10 +59,12 @@ def main() -> int:
     parser.add_argument("--group")
     parser.add_argument("--mask-fraction", type=float, default=0.25)
     parser.add_argument("--mask-fractions", type=float, nargs="+", help="Evaluate several masking fractions in one run")
+    parser.add_argument("--seeds", type=int, nargs="+", help="Evaluate several random seeds in one run")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     fractions = args.mask_fractions or [args.mask_fraction]
-    result = [evaluate(args.table, args.target, args.group, args.features, fraction) for fraction in fractions]
+    seeds = args.seeds or [20260821]
+    result = [evaluate(args.table, args.target, args.group, args.features, fraction, seed) for seed in seeds for fraction in fractions]
     rendered = json.dumps(result[0] if len(result) == 1 else result, indent=2)
     print(rendered)
     if args.output:

@@ -37,3 +37,9 @@ Using the same grouped fit/calibration/test design and 25% expression-feature ma
 | Dacomitinib | 96 | 0.2604 | 85.4% |
 
 Coverage varies materially by drug. This is evidence that calibration must be evaluated per drug and mechanism, with larger calibration sets and repeated seeds, before any final uncertainty claim.
+
+### Three-seed repeat
+
+The same five drugs were rerun at 25% masking with seeds 20260821, 20260822, and 20260823. Mean coverage was 91.1% for AICA ribonucleotide, 94.1% for Tenovin-6, 89.6% for GSK1059615, 92.4% for ACY-1215, and 90.3% for dacomitinib. The full per-seed results are retained in the local derived output `data/processed/gdsc1_top5_missingness_seeds.json`.
+
+Coverage ranges across seeds were 85.6–94.8%, 91.7–95.8%, 87.5–91.7%, 87.5–97.9%, and 85.4–93.8%, respectively. This confirms that uncertainty performance is both drug- and split-sensitive; larger repeated-split evaluation is required before treating nominal coverage as established.
