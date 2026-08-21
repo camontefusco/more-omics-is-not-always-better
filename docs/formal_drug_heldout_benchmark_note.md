@@ -11,4 +11,14 @@ The combined 15-drug outer-joined table was evaluated with drug-grouped held-out
 
 Fusion improved pooled RMSE on two seeds and worsened slightly on one. This supports a modest, split-sensitive incremental effect rather than a universal fusion advantage.
 
-The benchmark implementation is `scripts/run_drug_heldout_benchmark.py`; split manifests are written under `data/processed/drug_heldout_splits/`. The first seed has corrected modality-level availability strata; seeds 20260822–20260823 retain model metrics from the completed full-scale runs but require a later runtime pass to rewrite their corrected strata counts.
+The benchmark implementation is `scripts/run_drug_heldout_benchmark.py`; split manifests are written under `data/processed/drug_heldout_splits/`.
+
+The corrected modality-level availability strata were independently recomputed from each persisted split manifest and the combined outer table. The resulting complete/missing/total test-row counts are:
+
+| Seed | Complete | Missing | Total |
+|---:|---:|---:|---:|
+| 20260821 | 1,513 | 1,046 | 2,559 |
+| 20260822 | 1,458 | 1,271 | 2,729 |
+| 20260823 | 1,530 | 1,078 | 2,608 |
+
+These counts replace the earlier first-feature-only diagnostic; they classify a row as complete only when all selected features for each modality are available.
