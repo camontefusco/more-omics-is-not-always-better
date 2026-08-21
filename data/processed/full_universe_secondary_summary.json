@@ -1,0 +1,165 @@
+{
+  "seed_rows": [
+    {
+      "seed": 20260821,
+      "expression_rmse": 0.16960098405641585,
+      "fusion_rmse": 0.1672396469868774,
+      "mean_response_rmse": 0.19208678937580886,
+      "fusion_delta_rmse": -0.0023613370695384495,
+      "fusion_vs_mean_delta_rmse": -0.02484714238893146
+    },
+    {
+      "seed": 20260822,
+      "expression_rmse": 0.2537880564596692,
+      "fusion_rmse": 0.2527015063164616,
+      "mean_response_rmse": 0.2700386609175438,
+      "fusion_delta_rmse": -0.0010865501432075764,
+      "fusion_vs_mean_delta_rmse": -0.017337154601082205
+    },
+    {
+      "seed": 20260823,
+      "expression_rmse": 0.23293822664232045,
+      "fusion_rmse": 0.2326335458084729,
+      "mean_response_rmse": 0.2371612786374797,
+      "fusion_delta_rmse": -0.0003046808338475482,
+      "fusion_vs_mean_delta_rmse": -0.004527732829006814
+    }
+  ],
+  "per_drug": {
+    "ACY-1215 (GDSC1:264)": {
+      "seeds": [
+        {
+          "seed": 20260821,
+          "n": 889,
+          "expression_rmse": 0.15274577223270072,
+          "fusion_rmse": 0.14959973492936535,
+          "mean_response_rmse": 0.16987452193084945,
+          "fusion_delta_rmse": -0.003146037303335375,
+          "fusion_vs_mean_delta_rmse": -0.020274787001484107
+        },
+        {
+          "seed": 20260822,
+          "n": 889,
+          "expression_rmse": 0.17207665158207278,
+          "fusion_rmse": 0.1694079927097967,
+          "mean_response_rmse": 0.1919732936137049,
+          "fusion_delta_rmse": -0.002668658872276075,
+          "fusion_vs_mean_delta_rmse": -0.02256530090390821
+        }
+      ],
+      "n_seeds": 2,
+      "mean_fusion_delta_rmse": -0.002907348087805725,
+      "fusion_help_count": 2,
+      "fusion_harm_count": 0
+    },
+    "DACOMITINIB (GDSC1:363)": {
+      "seeds": [
+        {
+          "seed": 20260821,
+          "n": 889,
+          "expression_rmse": 0.19773562622449953,
+          "fusion_rmse": 0.19586797863360675,
+          "mean_response_rmse": 0.20856283521210778,
+          "fusion_delta_rmse": -0.0018676475908927792,
+          "fusion_vs_mean_delta_rmse": -0.01269485657850103
+        },
+        {
+          "seed": 20260823,
+          "n": 889,
+          "expression_rmse": 0.18089902214328357,
+          "fusion_rmse": 0.17869552242394496,
+          "mean_response_rmse": 0.19206088892056986,
+          "fusion_delta_rmse": -0.002203499719338614,
+          "fusion_vs_mean_delta_rmse": -0.013365366496624898
+        }
+      ],
+      "n_seeds": 2,
+      "mean_fusion_delta_rmse": -0.0020355736551156967,
+      "fusion_help_count": 2,
+      "fusion_harm_count": 0
+    },
+    "SR-II-138A": {
+      "seeds": [
+        {
+          "seed": 20260821,
+          "n": 781,
+          "expression_rmse": 0.1522662471266757,
+          "fusion_rmse": 0.14999446133782107,
+          "mean_response_rmse": 0.1963037599865889,
+          "fusion_delta_rmse": -0.002271785788854619,
+          "fusion_vs_mean_delta_rmse": -0.046309298648767816
+        },
+        {
+          "seed": 20260823,
+          "n": 781,
+          "expression_rmse": 0.16587661138647686,
+          "fusion_rmse": 0.1635038622098911,
+          "mean_response_rmse": 0.21187122211550374,
+          "fusion_delta_rmse": -0.0023727491765857534,
+          "fusion_vs_mean_delta_rmse": -0.04836735990561264
+        }
+      ],
+      "n_seeds": 2,
+      "mean_fusion_delta_rmse": -0.002322267482720186,
+      "fusion_help_count": 2,
+      "fusion_harm_count": 0
+    },
+    "AICA RIBONUCLEOTIDE (GDSC1:1001)": {
+      "seeds": [
+        {
+          "seed": 20260822,
+          "n": 903,
+          "expression_rmse": 0.2929192912633693,
+          "fusion_rmse": 0.29241275009832945,
+          "mean_response_rmse": 0.31050165009573333,
+          "fusion_delta_rmse": -0.0005065411650398421,
+          "fusion_vs_mean_delta_rmse": -0.018088899997403873
+        }
+      ],
+      "n_seeds": 1,
+      "mean_fusion_delta_rmse": -0.0005065411650398421,
+      "fusion_help_count": 1,
+      "fusion_harm_count": 0
+    },
+    "NAVITOCLAX (GDSC2:1011)": {
+      "seeds": [
+        {
+          "seed": 20260822,
+          "n": 937,
+          "expression_rmse": 0.2771402496870144,
+          "fusion_rmse": 0.2763227431599537,
+          "mean_response_rmse": 0.29069290559773087,
+          "fusion_delta_rmse": -0.0008175065270606963,
+          "fusion_vs_mean_delta_rmse": -0.014370162437777168
+        }
+      ],
+      "n_seeds": 1,
+      "mean_fusion_delta_rmse": -0.0008175065270606963,
+      "fusion_help_count": 1,
+      "fusion_harm_count": 0
+    },
+    "STAUROSPORINE (GDSC2:1034)": {
+      "seeds": [
+        {
+          "seed": 20260823,
+          "n": 938,
+          "expression_rmse": 0.3113512596826068,
+          "fusion_rmse": 0.31296470572121704,
+          "mean_response_rmse": 0.2899096855128208,
+          "fusion_delta_rmse": 0.0016134460386102445,
+          "fusion_vs_mean_delta_rmse": 0.023055020208396226
+        }
+      ],
+      "n_seeds": 1,
+      "mean_fusion_delta_rmse": 0.0016134460386102445,
+      "fusion_help_count": 0,
+      "fusion_harm_count": 1
+    }
+  },
+  "summary": {
+    "drug_seed_cells": 9,
+    "fusion_help_cells": 8,
+    "fusion_harm_cells": 1,
+    "fusion_help_fraction": 0.8888888888888888
+  }
+}

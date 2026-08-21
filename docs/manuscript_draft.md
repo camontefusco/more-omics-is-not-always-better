@@ -44,6 +44,8 @@ We report mean absolute error (MAE) and root mean squared error (RMSE). Fusion d
 
 Drug-held-out performance showed a small improvement in all three full-universe splits. Mean RMSE across seeds was 0.2175 for fusion versus 0.2188 for expression alone; this is an arithmetic mean of split-level RMSE values, not a pooled observation-level RMSE. Per-seed and per-model values are reported in Table 2 and Supplementary Table S3.
 
+As a secondary diagnostic, a training-set mean-response baseline was worse than expression and fusion in every seed (RMSE 0.1921, 0.2700, and 0.2372 for the three splits). A per-drug audit covered six unique held-out compounds across nine drug-seed cells; fusion improved RMSE in eight cells and worsened it in one. Because the same compounds recur across seeds and only three drugs are held out per split, this audit is descriptive rather than an independent estimate of generalization.
+
 ### 3.2. Cross-study transfer
 
 In leave-one-dataset-out validation, expression was consistently stronger than fusion, with the largest fusion degradation on CTD2. These folds test transfer across source datasets, not replication of the same drug. The signed fusion-minus-expression RMSE deltas are shown in Figure 2 and Supplementary Table S4.

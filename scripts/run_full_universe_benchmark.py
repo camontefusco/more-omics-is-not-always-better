@@ -58,6 +58,12 @@ def run(response_path: Path, raw_paths: dict[str, Path], output: Path, manifest_
     y_train = frame.iloc[train_idx]["response_value"].to_numpy()
     y_test = frame.iloc[test_idx]["response_value"].to_numpy()
     metrics: dict[str, object] = {}
+    per_drug: dict[str, dict[str, dict[str, float]]] = {}
+    baseline_prediction = float(np.mean(y_train))
+    baseline_pred = np.full_like(y_test, baseline_prediction, dtype=float)
+    metrics["mean_response"] = {"mae": float(mean_absolute_error(y_test, baseline_pred)), "rmse": float(mean_squared_error(y_test, baseline_pred) ** 0.5), "feature_count": 0}
+    for drug in sorted(frame.iloc[test_idx]["drug_id_raw"].astype(str).unique()):
+        per_drug[drug] = {}
     for name, cols in selected.items():
         blocks = []
         for modality in ("expression", "copy_number", "mutation"):
@@ -73,7 +79,16 @@ def run(response_path: Path, raw_paths: dict[str, Path], output: Path, manifest_
         model.fit(train_x, y_train)
         prediction = model.predict(test_x)
         metrics[name] = {"mae": float(mean_absolute_error(y_test, prediction)), "rmse": float(mean_squared_error(y_test, prediction) ** 0.5), "feature_count": len(cols)}
-    result = {"seed": seed, "top_k": top_k, "candidate_source": "full_raw_modality_tables", "metrics": metrics, "raw_feature_counts": {k: int(v.shape[1]) for k, v in modalities.items()}}
+        test_drugs = frame.iloc[test_idx]["drug_id_raw"].astype(str).to_numpy()
+        for drug in per_drug:
+            mask = test_drugs == drug
+            if mask.any():
+                per_drug[drug][name] = {"n": int(mask.sum()), "mae": float(mean_absolute_error(y_test[mask], prediction[mask])), "rmse": float(mean_squared_error(y_test[mask], prediction[mask]) ** 0.5)}
+    test_drugs = frame.iloc[test_idx]["drug_id_raw"].astype(str).to_numpy()
+    for drug in per_drug:
+        mask = test_drugs == drug
+        per_drug[drug]["mean_response"] = {"n": int(mask.sum()), "mae": float(mean_absolute_error(y_test[mask], baseline_pred[mask])), "rmse": float(mean_squared_error(y_test[mask], baseline_pred[mask]) ** 0.5)}
+    result = {"seed": seed, "top_k": top_k, "candidate_source": "full_raw_modality_tables", "metrics": metrics, "per_drug": per_drug, "raw_feature_counts": {k: int(v.shape[1]) for k, v in modalities.items()}}
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2) + "\n")
     return result
