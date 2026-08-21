@@ -1,9 +1,23 @@
 project: more-omics-is-not-always-better
 analysis_date: 2026-08-21
-nominal_seed_set: [20260821, 20260822, 20260823]
+nominal_seed_set: [20260821, 20260822, 20260823, 20260824, 20260825]
 feature_selection: train_only_variance_top_2000
-group_split: cell_line_held_out
+group_split: drug_held_out_for_formal_benchmark; cell_line_held_out_for_exploratory_diagnostics
 completed_results:
+  - id: full_universe_drug_heldout
+    dataset: GDSC1_GDSC2_CTD2
+    drugs: 15
+    seeds: [20260821, 20260822, 20260823, 20260824, 20260825]
+    comparison: expression_copy_number_mutation_fusion_ridge
+    feature_scope: complete_raw_modality_universe_inside_each_training_fold
+    output: data/processed/full_universe_*.json
+  - id: full_universe_leave_one_dataset_out
+    dataset: GDSC1_GDSC2_CTD2
+    drugs: 15
+    folds: [CTD2, GDSC1, GDSC2]
+    comparison: expression_copy_number_mutation_fusion_ridge
+    feature_scope: complete_raw_modality_universe_inside_each_training_fold
+    output: data/processed/full_universe_lood_results.json
   - id: gdsc1_top5_modality_seeds
     dataset: GDSC1
     drugs: 5
@@ -32,4 +46,5 @@ completed_results:
 known_limits:
   - MoA mapping is complete for the 15-drug evaluation universe but not the full GDSC1 response universe.
   - Derived CSV and JSON outputs are local and excluded from the Git repository.
-  - Final drug-held-out, conflict, redundancy, clean-environment, and figure-render checks remain open.
+  - Exploratory cell-line-held-out and calibration analyses are retained for audit history and are not formal headline results.
+  - LOOD is cross-study transfer rather than same-drug replication because the declared drug universe has limited cross-dataset overlap.
