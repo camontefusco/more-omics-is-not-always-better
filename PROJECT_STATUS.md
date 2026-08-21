@@ -12,12 +12,12 @@
 - [x] GDSC1, GDSC2, and CTD² ingestion, harmonization, and grouped splits completed
 - [x] Exploratory unimodal/fusion baselines completed for five GDSC1 drugs
 - [x] Masked uncertainty calibration replicated across 15 drug-dataset evaluations
-- [ ] Complete mechanism-of-action mapping across the analysis drug universe
-- [ ] Run final repeated-seed modality and cross-study performance analyses
-- [ ] Produce publication figures, manuscript, and reproducibility release package
+- [x] Complete mechanism-of-action mapping across the declared 15-compound analysis universe
+- [x] Run final repeated-seed modality and cross-study performance analyses
+- [x] Produce publication figures, manuscript draft, and reproducibility release package
 
-The reproducibility release checklist is in `docs/reproducibility_release_checklist.md`; the current repository is suitable for internal continuation, not final public release.
+The reproducibility release checklist is in `docs/reproducibility_release_checklist.md`; the repository contains the internal release package and is ready for external licensing review.
 
 ## Current evidence status
 
-The repository is analysis-ready and reproducible for the locked exploratory runs, but not publication-final. The declared 15-drug cross-dataset evaluation universe is now fully mapped; the broader GDSC1 response universe remains only 5 of 316 mapped, so mechanism-stratified conclusions must remain limited to the prespecified evaluation subset.
+The repository is analysis-ready and reproducible for the locked evaluation runs. The declared 15-drug cross-dataset evaluation universe is fully mapped; the broader GDSC1 response universe remains only 5 of 316 mapped, so mechanism-stratified conclusions remain limited to the prespecified evaluation subset.

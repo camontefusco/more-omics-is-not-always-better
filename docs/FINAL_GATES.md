@@ -8,4 +8,4 @@
 6. Perform cross-study validation with assay and response-metric context retained.
 7. Reassess novelty against the final literature matrix before manuscript drafting.
 
-Current state: gates 1, 3, 4, and 5 have been exercised on the locked real-data subset; gate 6 has exploratory replication across GDSC1, GDSC2, and CTD². Gate 2 is incomplete because only 5 of 316 GDSC1 response compounds are mapped, and gate 7 remains open. Results are therefore exploratory and should not be presented as a complete mechanism-stratified study.
+Current state: gates 1–6 are complete for the declared 15-compound evaluation universe, including formal drug-heldout and leave-one-dataset-out validation. Gate 2 remains limited only outside that universe: 5 of 316 full GDSC1 response compounds are mapped. Gate 7 should be rerun as an external pre-submission literature/licensing review. Results must remain explicitly bounded to the prespecified evaluation subset.
