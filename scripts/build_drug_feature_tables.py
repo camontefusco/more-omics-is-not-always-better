@@ -7,7 +7,7 @@ from pathlib import Path
 import pandas as pd
 
 
-def build(response: Path, modality_paths: dict[str, Path], drugs: list[str], output: Path) -> list[dict[str, object]]:
+def build(response: Path, modality_paths: dict[str, Path], drugs: list[str], output: Path, join: str = "inner") -> list[dict[str, object]]:
     response_frame = pd.read_csv(response)
     modalities = []
     for name, path in modality_paths.items():
@@ -16,7 +16,7 @@ def build(response: Path, modality_paths: dict[str, Path], drugs: list[str], out
         modalities.append(frame)
     joined = modalities[0]
     for frame in modalities[1:]:
-        joined = joined.merge(frame, on="depmap_id", how="inner", validate="one_to_one")
+        joined = joined.merge(frame, on="depmap_id", how=join, validate="one_to_one")
     output.mkdir(parents=True, exist_ok=True)
     reports = []
     for drug in drugs:
@@ -36,9 +36,10 @@ def main() -> int:
     parser.add_argument("--mutation", type=Path, required=True)
     parser.add_argument("--drug", action="append", required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--join", choices=["inner", "outer"], default="inner")
     args = parser.parse_args()
     import json
-    print(json.dumps(build(args.response, {"expression": args.expression, "copy_number": args.copy_number, "mutation": args.mutation}, args.drug, args.output), indent=2))
+    print(json.dumps(build(args.response, {"expression": args.expression, "copy_number": args.copy_number, "mutation": args.mutation}, args.drug, args.output, args.join), indent=2))
     return 0
 
 
