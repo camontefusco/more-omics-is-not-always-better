@@ -22,19 +22,28 @@ def evaluate(path: Path, target: str, group: str, features: list[str], mask_frac
     if missing:
         raise ValueError(f"missing feature columns: {sorted(missing)}")
     train_idx, test_idx = next(GroupShuffleSplit(n_splits=1, test_size=0.2, random_state=seed).split(frame, groups=frame[group]))
+    fit_idx, calibration_idx = next(
+        GroupShuffleSplit(n_splits=1, test_size=0.2, random_state=seed + 1).split(
+            frame.loc[train_idx], groups=frame.loc[train_idx, group]
+        )
+    )
+    fit_idx = train_idx[fit_idx]
+    calibration_idx = train_idx[calibration_idx]
     rng = np.random.default_rng(seed)
-    train = frame.loc[train_idx, features].astype(float).copy()
+    fit = frame.loc[fit_idx, features].astype(float).copy()
+    calibration = frame.loc[calibration_idx, features].astype(float).copy()
     test = frame.loc[test_idx, features].astype(float).copy()
-    mask = rng.random(test.shape) < mask_fraction
-    test.values[mask] = np.nan
+    calibration.values[rng.random(calibration.shape) < mask_fraction] = np.nan
+    test.values[rng.random(test.shape) < mask_fraction] = np.nan
     model = Pipeline([("impute", SimpleImputer(strategy="median")), ("scale", StandardScaler()), ("model", Ridge(alpha=1.0))])
-    model.fit(train, frame.loc[train_idx, target])
+    model.fit(fit, frame.loc[fit_idx, target])
+    calibration_prediction = model.predict(calibration)
     prediction = model.predict(test)
-    residuals = np.abs(frame.loc[train_idx, target].to_numpy() - model.predict(train))
-    radius = float(np.quantile(residuals, 0.9))
+    residuals = np.abs(frame.loc[calibration_idx, target].to_numpy() - calibration_prediction)
+    radius = float(np.quantile(residuals, 0.9, method="higher"))
     observed = frame.loc[test_idx, target].to_numpy()
     coverage = float(np.mean((observed >= prediction - radius) & (observed <= prediction + radius)))
-    return {"rows_test": int(len(test_idx)), "mask_fraction": mask_fraction, "interval_radius_90": radius, "interval_coverage": coverage, "seed": seed}
+    return {"rows_fit": int(len(fit_idx)), "rows_calibration": int(len(calibration_idx)), "rows_test": int(len(test_idx)), "mask_fraction": mask_fraction, "interval_radius_90": radius, "interval_coverage": coverage, "seed": seed}
 
 
 def main() -> int:
