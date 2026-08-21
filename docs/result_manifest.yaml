@@ -19,18 +19,21 @@ completed_results:
     feature_scope: complete_raw_modality_universe_inside_each_training_fold
     output: data/processed/full_universe_lood_results.json
   - id: gdsc1_top5_modality_seeds
+    status: exploratory_superseded
     dataset: GDSC1
     drugs: 5
     seeds: [20260821, 20260822, 20260823]
     comparison: expression_copy_number_mutation_fusion_ridge
     output: data/processed/gdsc1_top5_modality_seeds.json
   - id: gdsc2_modality_seeds
+    status: exploratory_superseded
     dataset: GDSC2
     drugs: 5
     seeds: [20260821, 20260822, 20260823]
     comparison: expression_copy_number_mutation_fusion_ridge
     output: data/processed/cross_dataset_modality_seeds.json
   - id: ctd2_modality_seeds
+    status: exploratory_superseded
     dataset: CTD2
     drugs: 5
     seeds: [20260821, 20260822, 20260823]
