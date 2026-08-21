@@ -20,3 +20,7 @@
 ## Decision
 
 Do not mark the manifest locked or download the full data bundle yet. The release names above are recorded as evidence, but the remaining unresolved fields would make cross-study comparisons ambiguous.
+
+## Access constraint
+
+On 2026-08-21, the DepMap download-catalog endpoint returned an interactive Turnstile verification page to automated access. The portal is therefore not suitable for unattended metadata retrieval in this environment; a human/browser-assisted download or provider-supplied direct file URL is required for file-level checksums and exact release metadata.
