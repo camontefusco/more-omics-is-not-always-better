@@ -1,1 +1,6 @@
 drug_id_raw,pubchem_cid,drug_name,moa_source,moa_primary,moa_secondary,confidence,notes
+AICA RIBONUCLEOTIDE (GDSC1:1001),,AICA riboside / AICAR,https://pmc.ncbi.nlm.nih.gov/articles/PMC8147799/,AMPK activator / purine-metabolism probe,AMPK-independent metabolic effects,medium,"Use cautiously; cellular effects are not exclusively AMPK-mediated."
+DACOMITINIB (GDSC1:363),,dacomitinib,https://www.cancer.gov/publications/dictionaries/cancer-drug/def/dacomitinib,pan-HER tyrosine-kinase inhibitor,irreversible EGFR/HER1-HER2-HER4 inhibition,high,"NCI Drug Dictionary definition."
+ACY-1215 (GDSC1:264),,ricolinostat / ACY-1215,https://www.cancer.gov/publications/dictionaries/cancer-drug/def/ricolinostat,HDAC6 inhibitor,proteostasis / aggresome disruption,high,"ACY-1215 is the ricolinostat synonym."
+GSK1059615 (GDSC1:374),,GSK1059615,https://pubmed.ncbi.nlm.nih.gov/30765226/,PI3K-mTOR dual inhibitor,PI3K-AKT-mTOR pathway inhibition,high,"Primary literature reports dual PI3K/mTOR inhibition."
+TENOVIN-6 (GDSC1:342),,Tenovin-6,https://pmc.ncbi.nlm.nih.gov/articles/PMC2742717/,SIRT1/SIRT2 inhibitor,p53 acetylation and activation,high,"Tool compound; not an approved anticancer therapy."
