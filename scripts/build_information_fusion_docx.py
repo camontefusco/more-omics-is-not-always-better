@@ -203,7 +203,7 @@ def main():
     add_body(doc,"Supplementary Table S1 reports the declared compound universe and source-specific response rows. The initial three-seed missingness audit is reported separately in the frozen result tables; the five-seed performance benchmark is also reported separately. Supplementary Table S2 records the frozen artifact and validation scope. Figures are supplied separately in the submission package.")
     p=doc.add_paragraph(); p.add_run("Supplementary Table S2. ").bold=True; p.add_run("Drug-held-out missingness strata.")
     add_table(doc,["Seed","Complete rows","Missing rows","Total rows"],[["20260821","1513","1046","2559"],["20260822","1458","1271","2729"],["20260823","1530","1078","2608"]])
-    p=doc.add_paragraph(); p.add_run("Supplementary Table S2. ").bold=True; p.add_run("Release scope and limitations.")
+    p=doc.add_paragraph(); p.add_run("Supplementary Table S3. ").bold=True; p.add_run("Release scope and limitations.")
     add_table(doc,["Item","Status"],[["Evaluation universe","15 declared compounds across GDSC1, GDSC2, CTD²"],["Drug-held-out validation","5 persisted seeds; fold-local top-2,000 features from full raw modality universes"],["Cross-study validation","LOOD folds for CTD², GDSC1, and GDSC2"],["MoA mapping","15/15 declared compounds; 5/316 full GDSC1 universe"],["Raw data","Provider files not redistributed; checksums recorded"]])
     OUT.parent.mkdir(exist_ok=True); doc.save(OUT); print(OUT)
 
