@@ -10,11 +10,11 @@ Carlos Victor Montefusco-Pereira¹
 
 ## Affiliations
 
-¹Independent Researcher in Data Science and Artificial Intelligence in Industrial Pharmaceutics, Berlin, Germany
+¹Independent Researcher in Data Science and AI for Pharmaceutical Industry, Berlin, Germany
 
 ## Corresponding author
 
-Carlos Victor Montefusco-Pereira, Berlin, Germany — **cmontefusco@gmail.com**
+Carlos Victor Montefusco-Pereira, Friedrich-Wilhelm 28, 12103 Berlin, Germany — **cmontefusco@gmail.com**
 
 ## Declarations
 
@@ -30,4 +30,4 @@ Ethics statement: Not applicable. The study uses publicly available, de-identifi
 
 Data-access acknowledgement: DepMap/GDSC/CTD² files were obtained from the DepMap portal under the provider’s applicable terms. The manuscript cites the relevant DepMap resources; raw provider files are not redistributed.
 
-Reviewer blinding: The non-anonymized submission identifies the author. A separate anonymized manuscript and supplementary package are available if double-blind review is required.
+Reviewer blinding: No reviewer anonymization is requested; this is a non-anonymized submission.

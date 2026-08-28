@@ -9,10 +9,10 @@
 - [x] Complete title page author names, affiliations, and corresponding-author details.
 - [x] Complete CRediT, funding, competing-interest, and GenAI declarations.
 - [x] Prepare graphical abstract at the required 531 × 1328 pixel ratio.
-- [x] Prepare anonymized reviewer package with author information removed.
+- [x] Prepare reviewer package; primary submission is non-anonymized as requested.
 - [x] Prepare cover letter answering the journal’s required questions.
 - [x] Include data/code availability and public-data licensing note.
 - [x] Add ethics statement: not applicable.
-- [x] Add reviewer-blinding instructions and anonymized package.
+- [x] Record reviewer-blinding choice: none.
 - [x] Add DepMap data-access acknowledgement.
 - [ ] Convert to the journal Word or LaTeX template and perform final page-count/format QA.

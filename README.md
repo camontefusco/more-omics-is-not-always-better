@@ -31,5 +31,5 @@ Deadline: 15 November 2026
 ## Project locations
 
 - Drive folder: https://drive.google.com/drive/folders/1gkOTOorq7aylDgAn67qlKDuWje7EyJq5
-- Local project: `/Users/cmontefusco/Documents/Codex/projects/more-omics-is-not-always-better`
-- GitHub repository: pending GitHub re-authentication and repository creation.
+- Local project: `/Users/cmontefusco/Coding_projects/more-omics-is-not-always-better`
+- GitHub repository: https://github.com/camontefusco/more-omics-is-not-always-better

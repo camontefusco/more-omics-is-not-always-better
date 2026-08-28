@@ -20,7 +20,7 @@ Evidence: all formal splits, feature-selection rules, derived result tables, fig
 
 This manuscript has not been published previously and is not under consideration elsewhere. All authors will approve the submitted version and authorship list before submission.
 
-If the journal requires double-blind review, we will provide the prepared anonymized manuscript, supplementary material, highlights, and graphical abstract package.
+Reviewer blinding: We are submitting a non-anonymized manuscript and do not request reviewer blinding.
 
 Sincerely,
 
