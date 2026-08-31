@@ -1,4 +1,4 @@
-# Information Fusion submission checklist
+# Journal of Pharmaceutical and BioTech Industry (JPBI) submission checklist
 
 - [x] Confirm article is 10–35 pages including figures, tables, references, appendices, and biosketches.
 - [x] Keep references below the 50-reference Research article limit.

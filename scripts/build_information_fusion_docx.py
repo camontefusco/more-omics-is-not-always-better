@@ -10,7 +10,7 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "submission" / "information_fusion_manuscript_package.docx"
+OUT = ROOT / "submission" / "jpbi_manuscript_package.docx"
 
 def shade(cell, fill):
     tcPr = cell._tc.get_or_add_tcPr()

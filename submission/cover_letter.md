@@ -1,4 +1,4 @@
-# Cover letter — Information Fusion
+# Cover letter — Journal of Pharmaceutical and BioTech Industry (JPBI)
 
 Dear Editors,
 

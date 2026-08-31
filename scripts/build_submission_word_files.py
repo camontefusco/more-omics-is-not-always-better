@@ -21,11 +21,11 @@ def add_title(doc, text):
     p.paragraph_format.space_after = Pt(18)
 
 def build_cover():
-    doc = Document(); setup(doc); add_title(doc, "Cover Letter — Information Fusion")
+    doc = Document(); setup(doc); add_title(doc, "Cover Letter — Journal of Pharmaceutical and BioTech Industry (JPBI)")
     paras = [
         "Dear Editors,",
         "We submit “When More Omics Is Not Always Better: Drug- and Dataset-Conditional Value of Multimodal Cancer Pharmacogenomics” as a Research article. The study evaluates multimodal information fusion for cancer drug-response prediction using a declared 15-compound universe spanning GDSC1, GDSC2, and CTD².",
-        "The manuscript fits Information Fusion because it studies feature-level fusion in an imperfect and incomplete biomedical environment, with explicit attention to missingness, redundancy, algorithmic comparison, and cross-source transfer. The central finding is that fusion is conditional: it produced a small mean improvement across five full-universe drug-held-out splits, favored fusion in three splits and expression in two, and was slightly worse in all three leave-one-dataset-out folds.",
+        "The manuscript fits Journal of Pharmaceutical and BioTech Industry (JPBI) because it studies feature-level fusion in an imperfect and incomplete biomedical environment, with explicit attention to missingness, redundancy, algorithmic comparison, and cross-source transfer. The central finding is that fusion is conditional: it produced a small mean improvement across five full-universe drug-held-out splits, favored fusion in three splits and expression in two, and was slightly worse in all three leave-one-dataset-out folds.",
         "State of the art: the study is positioned against CCLE/GDSC pharmacogenomic resources, multimodal drug-response methods including MOLI, and machine-learning benchmarks of multi-omics integration [Barretina et al., 2012; Iorio et al., 2016; Tsherniak et al., 2017; Azuaje, 2017; Sharifi-Noghabi et al., 2019; Cai et al., 2022]. The contribution is evaluation design and evidence-bounded comparison, not a claim of a new deep-learning architecture.",
         "Public datasets: we used DepMap response and molecular releases for GDSC1, GDSC2, and CTD², with release identifiers and checksums recorded in the repository. Raw files are not redistributed.",
         "Declarations: the study received no external funding; the author declares no competing interests; ethics approval is not applicable because the study uses publicly available de-identified cell-line and molecular data with no human participants, patient intervention, or animal experimentation. DepMap data are acknowledged and cited according to the provider’s guidance.",
@@ -36,7 +36,7 @@ def build_cover():
         "Sincerely,\n\nCarlos Victor Montefusco-Pereira",
     ]
     for t in paras: doc.add_paragraph(t)
-    doc.save(OUT / "information_fusion_cover_letter.docx")
+    doc.save(OUT / "jpbi_cover_letter.docx")
 
 def build_highlights():
     doc = Document(); setup(doc); add_title(doc, "Highlights")
@@ -48,7 +48,7 @@ def build_highlights():
         "More omics did not guarantee better cross-study prediction.",
     ]:
         p = doc.add_paragraph(style="List Bullet"); p.paragraph_format.space_after = Pt(8); p.add_run(t)
-    doc.save(OUT / "information_fusion_highlights.docx")
+    doc.save(OUT / "jpbi_highlights.docx")
 
 if __name__ == "__main__":
     build_cover(); build_highlights()
