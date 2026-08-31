@@ -139,7 +139,7 @@ def main():
             m=f["metrics"][model]
             lood_rows.append([dname, model, str(f["train_rows"]), str(f["test_rows"]), f"{m['mae']:.4f}", f"{m['rmse']:.4f}"])
     add_table(doc,["Held-out dataset","Model","Train rows","Test rows","MAE","RMSE"],lood_rows)
-    for image, caption in [(ROOT/"outputs/figures/lood_rmse.png","Figure 1. Leave-one-dataset-out performance."),(ROOT/"outputs/figures/modality_conflict.png","Figure 2. Fusion minus expression RMSE across held-out folds."),(ROOT/"outputs/figures/composite_validation.png","Figure 3. Composite summary of transfer performance, signed fusion deltas, and structured modality availability.")]:
+    for image, caption in [(ROOT/"outputs/figures/lood_rmse.png","Figure 1. Leave-one-dataset-out performance."),(ROOT/"outputs/figures/modality_conflict.png","Figure 2. Modality conflict and fusion-minus-expression error differences."),(ROOT/"outputs/figures/figure_3a_cross_study_transfer.png","Figure 3A. Cross-study transfer by modality."),(ROOT/"outputs/figures/figure_3b_fusion_delta.png","Figure 3B. Fusion-minus-expression RMSE by held-out split."),(ROOT/"outputs/figures/figure_3c_modality_availability.png","Figure 3C. Outer-join modality availability.") ]:
         doc.add_picture(str(image), width=Inches(6.5)); p=doc.paragraphs[-1]; p.alignment=WD_ALIGN_PARAGRAPH.CENTER; cap=doc.add_paragraph(caption); cap.alignment=WD_ALIGN_PARAGRAPH.CENTER
 
     add_heading(doc, "4. Discussion", 1)
