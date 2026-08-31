@@ -100,7 +100,7 @@ In this small, prespecified DepMap benchmark, adding copy-number and mutation bl
 
 # 6. Data and code availability
 
-Code, manifests, derived result summaries, figures, and reproducibility notes are provided in the private project repository. Raw DepMap files must be obtained from the provider under the applicable terms; see `docs/public_data_access_note.md`.
+Code, manifests, derived result summaries, figures, and reproducibility notes are currently maintained in a private project repository and will be released publicly before publication. The repository is not yet an unrestricted public data or code archive. Raw DepMap files must be obtained from the provider under the applicable terms; see `docs/public_data_access_note.md`.
 
 # 7. References
 

@@ -9,10 +9,13 @@
 - [x] Complete title page author names, affiliations, and corresponding-author details.
 - [x] Complete CRediT, funding, competing-interest, and GenAI declarations.
 - [x] Prepare graphical abstract at the required 531 × 1328 pixel ratio.
-- [x] Prepare reviewer package; primary submission is non-anonymized as requested.
+- [x] Prepare reviewer package; primary submission is single-anonymized/non-anonymized as requested.
 - [x] Prepare cover letter answering the journal’s required questions.
 - [x] Include data/code availability and public-data licensing note.
 - [x] Add ethics statement: not applicable.
 - [x] Record reviewer-blinding choice: none.
 - [x] Add DepMap data-access acknowledgement.
-- [ ] Convert to the journal Word or LaTeX template and perform final page-count/format QA.
+- [x] Select Research Article; JPBI accepts detailed methods and has no maximum manuscript length.
+- [x] Confirm repository remains private until public release; do not enter a repository link before release.
+- [ ] Confirm the APC waiver in the submission system before final submission.
+- [ ] Perform final JPBI-specific page-count/format QA.
