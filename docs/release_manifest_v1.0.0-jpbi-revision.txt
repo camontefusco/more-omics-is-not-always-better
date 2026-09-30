@@ -32,4 +32,4 @@ Excluded
 
 Reproduction limitation
 -----------------------
-A clean rerun requires the permitted source files listed in data/raw/README.md. The repository preserves their expected filenames, release identifiers, and checksums where available, but cannot redistribute provider data. The Zenodo DOI is added after the GitHub release is archived.
+A clean rerun requires the permitted source files listed in data/raw/README.md. The repository preserves their expected filenames, release identifiers, and checksums where available, but cannot redistribute provider data. The Zenodo version DOI is https://doi.org/10.5281/zenodo.23054361.

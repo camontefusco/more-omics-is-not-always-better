@@ -29,7 +29,7 @@ The model uses cell-line molecular features and does not include drug chemical s
 
 ## Citation
 
-See `CITATION.cff`. The preferred citation will be the immutable Zenodo release associated with the final GitHub tag, together with the manuscript citation. The version DOI is pending until the GitHub release is archived by Zenodo.
+See `CITATION.cff`. The preferred citation will be the immutable Zenodo release associated with the final GitHub tag, together with the manuscript citation. The version DOI is https://doi.org/10.5281/zenodo.23054361.
 
 ## Project links
 
