@@ -1,5 +1,5 @@
 {
-  "title": "Multimodal Cancer Drug-Response Prediction Shows Small, Validation-Dependent Gains in a 15-Compound DepMap Benchmark",
+  "title": "When More Omics Is Not Always Better: Drug- and Dataset-Conditional Value of Multimodal Cancer Pharmacogenomics",
   "upload_type": "software",
   "description": "Reproducibility release containing code, split manifests, derived result summaries, figures, manuscript materials, and environment specifications for a leakage-controlled multimodal cancer drug-response benchmark. Raw DepMap, GDSC, and CTD² provider files are excluded and must be obtained under their applicable terms.",
   "creators": [

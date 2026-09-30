@@ -30,7 +30,7 @@ def main():
     doc=Document(); s=doc.sections[0]; s.top_margin=Inches(.7); s.bottom_margin=Inches(.7); s.left_margin=Inches(.7); s.right_margin=Inches(.7)
     doc.styles["Normal"].font.name="Arial"; doc.styles["Normal"].font.size=Pt(9)
     for n,z in [("Title",18),("Heading 1",14),("Heading 2",11)]: doc.styles[n].font.name="Arial"; doc.styles[n].font.size=Pt(z); doc.styles[n].font.color.rgb=RGBColor(0,0,0)
-    title=doc.add_paragraph(); title.alignment=WD_ALIGN_PARAGRAPH.CENTER; r=title.add_run("Supplementary material\nMultimodal Cancer Drug-Response Prediction Shows Small, Validation-Dependent Gains"); r.bold=True; r.font.size=Pt(18); r.font.color.rgb=RGBColor(0,0,0)
+    title=doc.add_paragraph(); title.alignment=WD_ALIGN_PARAGRAPH.CENTER; r=title.add_run("Supplementary material\nWhen More Omics Is Not Always Better: Drug- and Dataset-Conditional Value of Multimodal Cancer Pharmacogenomics"); r.bold=True; r.font.size=Pt(18); r.font.color.rgb=RGBColor(0,0,0)
     p=doc.add_paragraph(); p.alignment=WD_ALIGN_PARAGRAPH.CENTER; p.add_run("Carlos Victor Montefusco-Pereira\nInformation Fusion submission package")
     heading(doc,"S1. Reproducibility protocol",1)
     para(doc,"All formal results use the declared 15-compound universe: five GDSC1 compounds, five GDSC2 compounds, and five CTD² compounds. Molecular features are expression, copy number, and damaging mutations. For each training fold, the top 2,000 features per modality are selected by training-set variance only. The model pipeline is median imputation, standardization, and Ridge regression with alpha = 1.0. Fusion concatenates the three selected modality blocks (6,000 features).")

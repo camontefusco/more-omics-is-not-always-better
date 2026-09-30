@@ -1,4 +1,4 @@
-# Multimodal Cancer Drug-Response Prediction Shows Small, Validation-Dependent Gains in a 15-Compound DepMap Benchmark
+# When More Omics Is Not Always Better: Drug- and Dataset-Conditional Value of Multimodal Cancer Pharmacogenomics
 
 # Abstract
 

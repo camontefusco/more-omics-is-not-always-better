@@ -60,7 +60,7 @@ def main():
         styles[name].font.name = "Arial"; styles[name].font.size = Pt(size); styles[name].font.color.rgb = RGBColor(0,0,0)
 
     title = doc.add_paragraph(); title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = title.add_run("Multimodal Cancer Drug-Response Prediction Shows Small, Validation-Dependent Gains in a 15-Compound DepMap Benchmark"); run.bold = True; run.font.size = Pt(20); run.font.color.rgb = RGBColor(0,0,0)
+    run = title.add_run("When More Omics Is Not Always Better: Drug- and Dataset-Conditional Value of Multimodal Cancer Pharmacogenomics"); run.bold = True; run.font.size = Pt(20); run.font.color.rgb = RGBColor(0,0,0)
     p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; p.add_run("Carlos Victor Montefusco-Pereira\n").bold = True; p.add_run("Independent Researcher in Data Science and AI for Pharmaceutical Industry\nFriedrich-Wilhelm 28, 12103 Berlin, Germany\nCorresponding author: cmontefusco@gmail.com")
     doc.add_paragraph()
     p = doc.add_paragraph(); p.add_run("Article type: ").bold = True; p.add_run("Research article")

@@ -1,4 +1,4 @@
-0001	Multimodal Cancer Drug-Response Prediction Shows Small, Validation-Dependent Gains in a 15-Compound DepMap Benchmark
+0001	When More Omics Is Not Always Better: Drug- and Dataset-Conditional Value of Multimodal Cancer Pharmacogenomics
 0002	Carlos Victor Montefusco-Pereira
 Independent Researcher in Data Science and AI for Pharmaceutical Industry
 Friedrich-Wilhelm 28, 12103 Berlin, Germany
