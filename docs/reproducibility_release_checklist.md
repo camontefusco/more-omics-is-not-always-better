@@ -27,3 +27,14 @@
 ## Current release decision
 
 The repository is suitable for internal continuation and audit, with the evidence-bounded manuscript and release artifacts assembled. A final public release still requires an external licensing review and, if desired, expansion beyond the declared 15-compound universe.
+
+
+## Zenodo release gate
+
+- [x] Curate the final manuscript-supporting files and release metadata; see `docs/release_manifest_v1.0.0-jpbi-revision.txt`.
+- [x] Exclude raw provider data, credentials, caches, and exploratory artifacts not required for reproduction.
+- [ ] Create GitHub tag `v1.0.0-jpbi-revision`.
+- [ ] Create a GitHub release from that tag.
+- [ ] Enable this repository in Zenodo and archive the GitHub release.
+- [ ] Record the version DOI and concept DOI in the manuscript, response letter, README, and `docs/public_data_access_note.md`.
+- [ ] Verify that a clean clone plus permitted raw-data downloads can regenerate the frozen tables and figures.

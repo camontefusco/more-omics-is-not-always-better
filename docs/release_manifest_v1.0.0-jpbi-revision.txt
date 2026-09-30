@@ -1,0 +1,35 @@
+Release manifest: v1.0.0-jpbi-revision
+
+Purpose
+-------
+This release contains the code and frozen supporting artifacts needed to inspect and reproduce the JPBI revision analyses. It is a source-code and derived-results release, not a redistribution of provider data.
+
+Included
+--------
+- README.md, LICENSE, CITATION.cff, .zenodo.json
+- configs/requirements-release.txt and configs/dataset_manifest.yaml
+- scripts/ and tests/
+- docs/ methods, provenance, data-access, result, and reproducibility records
+- data/processed/*.json and frozen manifest directories required by the final analyses
+- outputs/figures/lood_rmse.png, outputs/figures/lood_rmse.pdf, outputs/figures/lood_rmse_source.json
+- outputs/figures/modality_conflict.png, outputs/figures/modality_conflict.pdf, outputs/figures/modality_conflict_source.json
+- submission/jpbi_manuscript_package.docx
+- submission/jpbi_manuscript_package_tracked_changes.docx
+- submission/jpbi_response_to_reviewers.docx
+- submission/jpbi_tables.docx
+- submission/information_fusion_supplementary.docx
+- submission/Figure1.png through submission/Figure4.png
+- submission/jpbi_cover_letter.docx and submission/jpbi_highlights.docx
+- submission/jpbi_clean_manuscript_line_numbered.txt
+
+Excluded
+--------
+- data/raw/ provider files and any restricted downloads
+- large outer-joined and top-five intermediate tables under data/processed/*tables/
+- exploratory smoke, first-drug, calibration, and superseded result files not listed in the final result manifest
+- local caches, credentials, virtual environments, and operating-system files
+- duplicate legacy submissions for the earlier Information Fusion workflow
+
+Reproduction limitation
+-----------------------
+A clean rerun requires the permitted source files listed in data/raw/README.md. The repository preserves their expected filenames, release identifiers, and checksums where available, but cannot redistribute provider data. The Zenodo DOI is added after the GitHub release is archived.

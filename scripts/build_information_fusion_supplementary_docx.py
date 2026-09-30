@@ -30,7 +30,7 @@ def main():
     doc=Document(); s=doc.sections[0]; s.top_margin=Inches(.7); s.bottom_margin=Inches(.7); s.left_margin=Inches(.7); s.right_margin=Inches(.7)
     doc.styles["Normal"].font.name="Arial"; doc.styles["Normal"].font.size=Pt(9)
     for n,z in [("Title",18),("Heading 1",14),("Heading 2",11)]: doc.styles[n].font.name="Arial"; doc.styles[n].font.size=Pt(z); doc.styles[n].font.color.rgb=RGBColor(0,0,0)
-    title=doc.add_paragraph(); title.alignment=WD_ALIGN_PARAGRAPH.CENTER; r=title.add_run("Supplementary material\nWhen More Omics Is Not Always Better"); r.bold=True; r.font.size=Pt(18); r.font.color.rgb=RGBColor(0,0,0)
+    title=doc.add_paragraph(); title.alignment=WD_ALIGN_PARAGRAPH.CENTER; r=title.add_run("Supplementary material\nMultimodal Cancer Drug-Response Prediction Shows Small, Validation-Dependent Gains"); r.bold=True; r.font.size=Pt(18); r.font.color.rgb=RGBColor(0,0,0)
     p=doc.add_paragraph(); p.alignment=WD_ALIGN_PARAGRAPH.CENTER; p.add_run("Carlos Victor Montefusco-Pereira\nInformation Fusion submission package")
     heading(doc,"S1. Reproducibility protocol",1)
     para(doc,"All formal results use the declared 15-compound universe: five GDSC1 compounds, five GDSC2 compounds, and five CTD² compounds. Molecular features are expression, copy number, and damaging mutations. For each training fold, the top 2,000 features per modality are selected by training-set variance only. The model pipeline is median imputation, standardization, and Ridge regression with alpha = 1.0. Fusion concatenates the three selected modality blocks (6,000 features).")
@@ -58,7 +58,7 @@ def main():
     d=json.loads((ROOT/"data/processed/structured_missingness_outer.json").read_text()); rows=[]
     for drug,x in d.items():
         c=x["row_mean_modality_correlations"]; rows.append([drug,x["rows"],f"{x['modality_row_availability']['expression']:.3f}",f"{x['modality_row_availability']['copy_number']:.3f}",f"{x['modality_row_availability']['mutation']:.3f}",f"{x['all_modality_complete_case_fraction']:.3f}",f"{c.get('copy_number__expression',0):+.3f}",f"{c.get('expression__mutation',0):+.3f}",f"{c.get('copy_number__mutation',0):+.3f}"])
-    table(doc,["Drug","Rows","Expr avail.","CN avail.","Mut. avail.","All complete","CN–Expr","Expr–Mut.","CN–Mut."],rows)
+    table(doc,["Drug","Rows","Expr avail.","CN avail.","Mut. avail.","All complete","CN-Expr","Expr-Mut.","CN-Mut."],rows)
     heading(doc,"S6. Exploratory uncertainty calibration",1)
     d=json.loads((ROOT/"data/processed/cross_dataset_missingness_summary.json").read_text()); rows=[]
     for ds,x in d["datasets"].items(): rows.append([ds,x["drugs"],f"{x['mean_coverage']:.3f}",f"{x['min_coverage']:.3f}",f"{x['max_coverage']:.3f}",x["at_or_above_nominal_90"]])
@@ -66,6 +66,20 @@ def main():
     para(doc,"This analysis is exploratory and is not part of the primary fusion benchmark. A nominal 90% coverage target was evaluated using fit/calibration/test partitions and 25% feature masking. Mean coverage was 0.911 across 15 drug evaluations, but coverage was not uniformly at or above nominal for every drug. These results do not establish a guaranteed interval and are not used for the primary performance claims.")
     heading(doc,"S7. Artifact and software manifest",1)
     table(doc,["Artifact","Role"],[["configs/dataset_manifest.yaml","Locked data releases and provenance"],["configs/requirements-release.txt","Runtime version pins"],["data/processed/full_universe_manifests/","Persisted full-universe drug-held-out split manifests"],["data/processed/full_universe_*.json","Full-universe repeated-seed metrics, mean baseline, and per-drug diagnostics"],["data/processed/full_universe_secondary_summary.json","Secondary per-drug and baseline summary"],["data/processed/full_universe_lood_manifests/","Persisted full-universe LOOD manifests"],["data/processed/full_universe_lood_results.json","Full-universe cross-study metrics"],["data/processed/modality_conflict_summary.json","Signed fusion-minus-expression deltas"],["outputs/figures/composite_validation.png","Composite summary figure"],["scripts/generate_composite_figure.py","Composite figure generator"],["scripts/run_full_universe_benchmark.py","Full-universe drug-held-out runner"],["scripts/run_full_universe_lood.py","Full-universe LOOD runner"],["scripts/summarize_secondary_benchmark.py","Per-drug and baseline summary"],["scripts/audit_structured_missingness.py","Availability/redundancy audit"],["scripts/summarize_modality_conflict.py","Conflict summary"],["tests/","13 automated tests"]])
+    heading(doc,"S8. Decision audit",1)
+    para(doc,"The decision tree in Figure 4 summarizes the main practical path. This section records the detailed decisions that produced the final estimand.")
+    table(doc,["Decision point","Options considered","Decision used","Reason and consequence"],[
+        ["Primary use case","Clinical prediction; drug discovery support; methodological benchmark","Methodological benchmark with early drug-discovery relevance","The data are public cell-line screens and do not support clinical or regulatory claims."],
+        ["Drug inputs","Drug-aware versus cell-line-only","Cell-line-only","No chemical, target, mechanism, dose, or fingerprint features were included; drug-held-out claims are narrow."],
+        ["Compound scope","All available compounds versus declared subset","Five compounds per source, 15 total","Balanced source scope with locked identifiers; not representative of the full drug universe."],
+        ["Validation","Random rows; grouped drug splits; source-held-out","Five grouped drug splits plus LOOD","Tests conditional transfer and source portability while limiting leakage."],
+        ["Feature selection","Precomputed candidate tables versus full raw universe","Fold-local selection from full raw modality tables","Prevents test-fold selection leakage; 2,000 features per modality."],
+        ["Fusion budget","Equal total budget versus 2,000 per modality","2,000 per modality, 6,000 fusion features","Transparent but not complexity-matched; equal-budget and tuned-penalty analyses remain future work."],
+        ["Missingness","Complete-case filtering versus imputation","Outer-join audit plus training-fold median imputation","Preserves rows and exposes availability; does not test missingness-aware architectures."],
+        ["Learner","Broad model comparison versus fixed reference","Ridge alpha = 1.0 with early concatenation","Reproducible reference; conclusions do not generalize to all fusion architectures."],
+        ["Interpretation","Universal multimodal claim versus conditional result","Conditional, validation-dependent conclusion","The observed delta is small, variable, and not causal."],
+    ])
+    para(doc,"The decision audit is intended to prevent later changes in scope, split unit, feature budget, or preprocessing from being presented as a direct replication of the reported benchmark.")
     heading(doc,"S8. Limitations and interpretation guardrails",1)
     para(doc,"The evaluation universe is small and declared rather than a complete drug screen. Drug identities do not broadly overlap across GDSC1, GDSC2, and CTD², so leave-one-dataset-out validation is cross-study transfer, not same-drug replication. The Ridge baseline is intentionally simple and does not establish the behavior of all fusion architectures. Outer-join availability reflects the prepared tables and should not be interpreted as a clinical assay-availability estimate. MoA mapping is complete for the declared 15 compounds but not for all 316 GDSC1 response compounds. No causal biological mechanism is inferred from the predictive comparisons.")
     OUT.parent.mkdir(exist_ok=True); doc.save(OUT); print(OUT)

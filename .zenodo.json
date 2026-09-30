@@ -1,0 +1,21 @@
+{
+  "title": "Multimodal Cancer Drug-Response Prediction Shows Small, Validation-Dependent Gains in a 15-Compound DepMap Benchmark",
+  "upload_type": "software",
+  "description": "Reproducibility release containing code, split manifests, derived result summaries, figures, manuscript materials, and environment specifications for a leakage-controlled multimodal cancer drug-response benchmark. Raw DepMap, GDSC, and CTD² provider files are excluded and must be obtained under their applicable terms.",
+  "creators": [
+    {
+      "name": "Montefusco-Pereira, Carlos Victor",
+      "affiliation": "Independent Researcher in Data Science and AI for Pharmaceutical Industry, Berlin, Germany",
+      "orcid": ""
+    }
+  ],
+  "keywords": ["cancer drug response", "pharmacogenomics", "multimodal learning", "cross-dataset validation", "reproducibility"],
+  "license": "MIT",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/camontefusco/more-omics-is-not-always-better",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

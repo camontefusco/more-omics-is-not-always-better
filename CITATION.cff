@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: "Multimodal Cancer Drug-Response Prediction Shows Small, Validation-Dependent Gains in a 15-Compound DepMap Benchmark"
+type: software
+message: "If you use the code, manifests, or derived benchmark artifacts, please cite this release and the associated manuscript."
+authors:
+  - family-names: Montefusco-Pereira
+    given-names: Carlos Victor
+    email: cmontefusco@gmail.com
+    affiliation: "Independent Researcher in Data Science and AI for Pharmaceutical Industry, Berlin, Germany"
+  - family-names: Montefusco-Pereira
+    given-names: Carlos Victor
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/camontefusco/more-omics-is-not-always-better"
