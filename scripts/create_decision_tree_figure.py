@@ -26,8 +26,9 @@ def rounded(x, y, w, h, text, face=BLUE, edge=NAVY, size=15, weight='normal'):
         linewidth=2.0, edgecolor=edge, facecolor=face,
     )
     ax.add_patch(patch)
+    text_color = 'white' if face == NAVY else INK
     ax.text(x + w/2, y + h/2, text, ha='center', va='center',
-            fontsize=size, color=INK, fontweight=weight, linespacing=1.25)
+            fontsize=size, color=text_color, fontweight=weight, linespacing=1.25)
 
 
 def arrow(x1, y1, x2, y2):
