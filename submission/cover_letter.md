@@ -1,10 +1,10 @@
-# Cover letter — Journal of Pharmaceutical and BioTech Industry (JPBI)
+# Cover letter - Journal of Pharmaceutical and BioTech Industry (JPBI)
 
 Dear Editors,
 
 We submit “When More Omics Is Not Always Better: Drug- and Dataset-Conditional Value of Multimodal Cancer Pharmacogenomics” as a Research article. The study evaluates multimodal information fusion for cancer drug-response prediction using a declared 15-compound universe spanning GDSC1, GDSC2, and CTD².
 
-The manuscript fits JPBI because it evaluates a computational method relevant to early drug discovery and pharmacogenomic biomarker prioritization, while studying feature-level fusion in an imperfect and incomplete biomedical environment, with explicit attention to missingness, redundancy, algorithmic comparison, and cross-source transfer. The central finding is that fusion is conditional: it produced a small mean improvement across five full-universe drug-held-out splits, favored fusion in three splits and expression in two, and was slightly worse in all three leave-one-dataset-out folds.
+The manuscript fits JPBI because it evaluates a computational method relevant to early drug discovery and pharmacogenomic biomarker prioritization, while studying feature-level fusion in an imperfect and incomplete biomedical environment, with explicit attention to missingness, redundancy, algorithmic comparison, and cross-source transfer. The central finding is that fusion is conditional: it produced a small mean improvement across five full-universe drug-held-out splits, favored fusion in four splits and expression in one, and was slightly worse in all three leave-one-dataset-out folds.
 
 State of the art: the study is positioned against CCLE/GDSC pharmacogenomic resources, multimodal drug-response methods including MOLI, and machine-learning benchmarks of multi-omics integration [Barretina et al., 2012; Iorio et al., 2016; Tsherniak et al., 2017; Azuaje, 2017; Sharifi-Noghabi et al., 2019; Cai et al., 2022]. The contribution is evaluation design and evidence-bounded comparison, not a claim of a new deep-learning architecture.
 

@@ -10,7 +10,8 @@ Carlos Victor Montefusco-Pereira¹
 
 ## Affiliations
 
-¹Independent Researcher in Data Science and AI for Pharmaceutical Industry, Berlin, Germany
+¹Affiliation 1: Independent Researcher in Data Science and AI for Pharmaceutical Industry
+Affiliation 2: Member of Brazil-Africa Group for Scientific Research and Writing (GPEC), Portuguese-Speaking African Countries (PALOPs), Berlin, Germany
 
 ## Corresponding author
 
