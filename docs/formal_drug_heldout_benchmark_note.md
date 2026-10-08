@@ -11,7 +11,7 @@ The combined 15-drug outer-joined table was evaluated with drug-grouped held-out
 | 20260825 | 0.2776 | 0.2788 | +0.0012 |
 | **Mean** | **0.2328** | **0.2322** | **−0.0006** |
 
-Fusion improved seed-level RMSE in three of five splits and was slightly worse in two. The reported mean is the arithmetic mean of split-level RMSE values, not a pooled observation-level RMSE. The sample SD of the seed-level delta is approximately 0.0013; this supports only a small, split-sensitive incremental effect rather than a universal fusion advantage.
+Fusion improved seed-level RMSE in four of five splits and was slightly worse in one. The reported mean is the arithmetic mean of split-level RMSE values, not a pooled observation-level RMSE. The sample SD of the seed-level delta is approximately 0.0013; this supports only a small, split-sensitive incremental effect rather than a universal fusion advantage.
 
 The benchmark implementation is `scripts/run_full_universe_benchmark.py`; split manifests are written under `data/processed/full_universe_manifests/`.
 
