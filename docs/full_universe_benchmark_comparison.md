@@ -11,7 +11,7 @@ The stronger benchmark selects the top 2,000 variance-ranked features per modali
 | 20260825 | 0.2776 | 0.2788 | +0.0012 |
 | **Mean** | **0.2328** | **0.2322** | **−0.0006** |
 
-Fusion improved RMSE in three of five full-universe splits and was slightly worse in two; the mean improvement was small and split-sensitive. The full-universe absolute errors differ from the earlier candidate-table benchmark, confirming that candidate-table construction materially affects the reported error scale. The five-seed full-universe result replaces the earlier headline benchmark because the manuscript claims selection from the full raw feature universe.
+Fusion improved RMSE in four of five full-universe splits and was slightly worse in one; the mean improvement was small and split-sensitive. The full-universe absolute errors differ from the earlier candidate-table benchmark, confirming that candidate-table construction materially affects the reported error scale. The five-seed full-universe result replaces the earlier headline benchmark because the manuscript claims selection from the full raw feature universe.
 
 Raw feature counts were 19,215 expression, 18,613 copy-number, and 19,505 mutation features. Each fold saved its train/test drug manifest and exact selected-feature lists under `data/processed/full_universe_manifests/`.
 
